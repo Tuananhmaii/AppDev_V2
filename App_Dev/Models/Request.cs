@@ -10,5 +10,6 @@ namespace App_Dev.Models
         [Required]
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
+        public bool IsApprove { get; set; } = false;
     }
 }
