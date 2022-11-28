@@ -1,21 +1,22 @@
 ﻿using App_Dev.Data;
 using App_Dev.Models;
+using App_Dev.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App_Dev.Controllers
 {
     public class CategoriesController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CategoriesController(ApplicationDbContext db)
+        public CategoriesController(IUnitOfWork unitOfWork)
         {
-            _db= db;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<Category> objCategoryList = _db.Categories;
+            IEnumerable<Category> objCategoryList = _unitOfWork.Category.GetAll();
             return View(objCategoryList);
         }
 
@@ -32,8 +33,8 @@ namespace App_Dev.Controllers
         {
             if (ModelState.IsValid)
             {
-               _db.Categories.Add(obj);
-               _db.SaveChanges();
+               _unitOfWork.Category.Add(obj);
+               _unitOfWork.Save();
                return RedirectToAction("Index");   
             }
             return View(obj);
@@ -46,13 +47,13 @@ namespace App_Dev.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.Categories.Find(id);
-            if(categoryFromDb == null)
+            var categoryFromDbFirst = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+            if(categoryFromDbFirst == null)
             {
                 return NotFound();
             }
 
-            return View(categoryFromDb);
+            return View(categoryFromDbFirst);
         }
 
         //POST
@@ -62,8 +63,8 @@ namespace App_Dev.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Categories.Update(obj);
-                _db.SaveChanges();
+                _unitOfWork.Category.Update(obj);
+                _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -76,13 +77,13 @@ namespace App_Dev.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.Categories.Find(id);
-            if (categoryFromDb == null)
+            var categoryFromDbFirst = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+            if (categoryFromDbFirst == null)
             {
                 return NotFound();
             }
 
-            return View(categoryFromDb);
+            return View(categoryFromDbFirst);
         }
 
         //POST
@@ -90,14 +91,14 @@ namespace App_Dev.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
-            var obj = _db.Categories.Find(id);
+            var obj = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
             if(obj == null)
             {
                 return NotFound();
             }
             
-            _db.Categories.Remove(obj);
-            _db.SaveChanges();
+            _unitOfWork.Category.Remove(obj);
+            _unitOfWork.Save();
             return RedirectToAction("Index");
         }
     }
