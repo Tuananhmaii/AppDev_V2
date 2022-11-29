@@ -10,10 +10,10 @@ namespace App_Dev.Models
         public string Name { get; set; }
         [Required]
         public string Author { get; set; }
-        public string Image { get; set; }
+        public string? Image { get; set; }
         [Required]
         public double Price { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [Required]
         [Display(Name = "Category")]
         public int CategoryId { get; set; }

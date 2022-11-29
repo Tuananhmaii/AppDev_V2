@@ -1,6 +1,7 @@
 ﻿using App_Dev.Data;
 using App_Dev.Models;
 using App_Dev.Repository.IRepository;
+using App_Dev.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -24,7 +25,16 @@ namespace App_Dev.Controllers
         //GET
         public IActionResult Create()
         {
-            return View();
+            BookVM book = new BookVM()
+            {
+                Book = new(),
+                CategoryList = _unitOfWork.Category.GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString(),
+                })
+            };
+            return View(book);
         }
 
         //POST
@@ -42,14 +52,14 @@ namespace App_Dev.Controllers
             ViewBag.CategoryList = CategoryList;
             if (ModelState.IsValid)
             {
-               _unitOfWork.Book.Add(obj);
-               _unitOfWork.Save();
-               return RedirectToAction("Index");   
+                _unitOfWork.Book.Add(obj);
+                _unitOfWork.Save();
+                return RedirectToAction("Index");
             }
             return View(obj);
         }
 
-        //GET
+        GET
         public IActionResult Edit(int? id)
         {
             if(id == null || id == 0)
