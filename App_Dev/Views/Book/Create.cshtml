@@ -1,0 +1,40 @@
+﻿@model Book
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div>
+        <h1>Create Book</h1>
+    </div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Author"></label>
+        <input asp-for="Author" />
+        <span asp-validation-for="Author"></span>
+    </div>
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+        <span asp-validation-for="Price"></span>
+    </div>
+    <div>
+        <label asp-for="Image"></label>
+        <input type="file" name="file" />
+    </div>
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div>
+        <label asp-for="CategoryId"></label>
+        <select asp-for="CategoryId" asp-items="ViewBag.CategoryList">
+            <option disabled selected>--Select Category--</option>
+        </select>
+        <span asp-validation-for="CategoryId"></span>
+    </div>
+    <button type="submit">Create</button>
+    <a asp-controller="Book" asp-action="Index">Back to List</a>
+</form>

@@ -10,8 +10,10 @@ namespace App_Dev.Repository
         {
             _db = db;
             Category = new CategoryRepository(_db);
+            Book = new BookRepository(_db);
         }
         public ICategoryRepository Category { get; private set; }
+        public IBookRepository Book { get; private set; }
 
         public void Save()
         {
