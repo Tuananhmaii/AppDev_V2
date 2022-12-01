@@ -1,6 +1,8 @@
 ﻿@model App_Dev.ViewModels.BookVM
 
 <form method="post" asp-action="Edit" enctype="multipart/form-data">
+    <input asp-for="Book.Id" />
+    <input asp-for="Book.Image" />
     <div>
         <h1>Edit Book</h1>
     </div>

@@ -45,10 +45,32 @@ namespace App_Dev.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(BookVM obj)
+        public IActionResult Create(BookVM obj, IFormFile file)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                if (file != null)
+                {
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(wwwRootPath, @"images\books");
+                    var extension = Path.GetExtension(file.FileName);
+
+                    if (obj.Book.Image != null)
+                    {
+                        var oldImagePath = Path.Combine(wwwRootPath, obj.Book.Image.TrimStart('\\'));
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
+                    using (var fileStream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+                    obj.Book.Image = @"images\books\" + fileName + extension;
+                }
                 _unitOfWork.Book.Add(obj.Book);
                 _unitOfWork.Save(); ;
                 return RedirectToAction("Index");
@@ -67,16 +89,8 @@ namespace App_Dev.Controllers
                     Value = u.Id.ToString(),
                 })
             };
-
-            if (id == null || id == 0)
-            {
-                return View(bookVM);
-            }
-            else
-            {
-                bookVM.Book = _unitOfWork.Book.GetFirstOrDefault(u => u.Id == id);
-                return View(bookVM);
-            }
+            bookVM.Book = _unitOfWork.Book.GetFirstOrDefault(u => u.Id == id);
+            return View(bookVM);
         }
 
         //POST
@@ -90,7 +104,7 @@ namespace App_Dev.Controllers
                 if (file != null)
                 {
                     string fileName = Guid.NewGuid().ToString();
-                    var uploads = Path.Combine(wwwRootPath, @"images\products");
+                    var uploads = Path.Combine(wwwRootPath, @"images\books");
                     var extension = Path.GetExtension(file.FileName);
 
                     if (obj.Book.Image != null)
@@ -106,7 +120,7 @@ namespace App_Dev.Controllers
                     {
                         file.CopyTo(fileStream);
                     }
-                    obj.Book.Image = @"images\products\" + fileName + extension;
+                    obj.Book.Image = @"images\books\" + fileName + extension;
                 }
                 _unitOfWork.Book.Update(obj.Book);
                 _unitOfWork.Save();
@@ -137,11 +151,16 @@ namespace App_Dev.Controllers
         public IActionResult DeletePOST(int? id)
         {
             var obj = _unitOfWork.Book.GetFirstOrDefault(u => u.Id == id);
-            if(obj == null)
+            if (obj == null)
             {
                 return NotFound();
             }
-            
+            var oldImagePath = Path.Combine(_hostEnvironment.WebRootPath, obj.Image.TrimStart('\\'));
+            if (System.IO.File.Exists(oldImagePath))
+            {
+                System.IO.File.Delete(oldImagePath);
+            }
+
             _unitOfWork.Book.Remove(obj);
             _unitOfWork.Save();
             return RedirectToAction("Index");
