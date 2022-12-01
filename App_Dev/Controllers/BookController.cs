@@ -40,26 +40,19 @@ namespace App_Dev.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Book obj)
+        public IActionResult Create(BookVM obj)
         {
-            Book book = new();
-            IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(
-                u => new SelectListItem
-                {
-                    Text = u.Name,
-                    Value = u.Id.ToString(),
-                });
-            ViewBag.CategoryList = CategoryList;
+
             if (ModelState.IsValid)
             {
-                _unitOfWork.Book.Add(obj);
+                _unitOfWork.Book.Add(obj.Book);
                 _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
             return View(obj);
         }
 
-        GET
+        //GET
         public IActionResult Edit(int? id)
         {
             if(id == null || id == 0)
