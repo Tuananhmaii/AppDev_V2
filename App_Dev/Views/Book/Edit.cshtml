@@ -1,40 +1,44 @@
-﻿@model Book
+﻿@model App_Dev.ViewModels.BookVM
 
 <form method="post" asp-action="Edit" enctype="multipart/form-data">
     <div>
         <h1>Edit Book</h1>
     </div>
     <div>
-        <label asp-for="Name">Name of Book</label>
-        <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
+        <label asp-for="Book.Name"></label>
+        <input asp-for="Book.Name" />
+        <span asp-validation-for="Book.Name"></span>
     </div>
     <div>
-        <label asp-for="Author"></label>
-        <input asp-for="Author" />
-        <span asp-validation-for="Author"></span>
+        <label asp-for="Book.Author"></label>
+        <input asp-for="Book.Author" />
+        <span asp-validation-for="Book.Author"></span>
     </div>
     <div>
-        <label asp-for="Price"></label>
-        <input asp-for="Price" />
-        <span asp-validation-for="Price"></span>
+        <label asp-for="Book.Price"></label>
+        <input asp-for="Book.Price" />
+        <span asp-validation-for="Book.Price"></span>
     </div>
     <div>
-        <label asp-for="Image"></label>
+        <label asp-for="Book.Image"></label>
         <input type="file" name="file" />
     </div>
     <div>
-        <label asp-for="Description"></label>
-        <input asp-for="Description" />
-        <span asp-validation-for="Description"></span>
+        <label asp-for="Book.Description"></label>
+        <input asp-for="Book.Description" />
+        <span asp-validation-for="Book.Description"></span>
     </div>
     <div>
-        <label asp-for="CategoryId"></label>
-        <select asp-for="CategoryId" asp-items="ViewBag.CategoryList">
+        <label asp-for="Book.CategoryId"></label>
+        <select asp-for="Book.CategoryId" asp-items="@Model.CategoryList">
             <option disabled selected>--Select Category--</option>
         </select>
-        <span asp-validation-for="CategoryId"></span>
+        <span asp-validation-for="Book.CategoryId"></span>
     </div>
-    <button type="submit">Update</button>
-    <a asp-controller="Categories" asp-action="Index">Back to List</a>
+    <button type="submit">Edit</button>
+    <a asp-controller="Book" asp-action="Index">Back to List</a>
+    <div class="col-2">
+        <img src="@Model.Book.Image" width="100%"
+             style="border-radius:5px; border:1px solid #bbb9b9" />
+    </div>
 </form>

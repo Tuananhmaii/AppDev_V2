@@ -10292,24 +10292,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Lee Min Nghia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AppDev\\App_Dev\\App_Dev.csproj",
+      "projectUniqueName": "D:\\AppDev_V2\\App_Dev\\App_Dev.csproj",
       "projectName": "App_Dev",
-      "projectPath": "D:\\AppDev\\App_Dev\\App_Dev.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "D:\\AppDev\\App_Dev\\obj\\",
+      "projectPath": "D:\\AppDev_V2\\App_Dev\\App_Dev.csproj",
+      "packagesPath": "C:\\Users\\Lee Min Nghia\\.nuget\\packages\\",
+      "outputPath": "D:\\AppDev_V2\\App_Dev\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Lee Min Nghia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

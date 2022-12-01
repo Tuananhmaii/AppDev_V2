@@ -1,6 +1,7 @@
 ﻿@model App_Dev.ViewModels.BookVM
 
 <form method="post" asp-action="Create" enctype="multipart/form-data">
+    <input asp-for="Book.Id" hidden />
     <div>
         <h1>Create Book</h1>
     </div>

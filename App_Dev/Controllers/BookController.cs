@@ -4,16 +4,19 @@ using App_Dev.Repository.IRepository;
 using App_Dev.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Hosting;
 
 namespace App_Dev.Controllers
 {
     public class BookController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public BookController(IUnitOfWork unitOfWork)
+        public BookController(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment)
         {
             _unitOfWork = unitOfWork;
+            _hostEnvironment = hostEnvironment;
         }
 
         public IActionResult Index()
@@ -23,9 +26,9 @@ namespace App_Dev.Controllers
         }
 
         //GET
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            BookVM book = new BookVM()
+            BookVM bookVM = new BookVM()
             {
                 Book = new(),
                 CategoryList = _unitOfWork.Category.GetAll().Select(u => new SelectListItem
@@ -34,55 +37,76 @@ namespace App_Dev.Controllers
                     Value = u.Id.ToString(),
                 })
             };
-            return View(book);
+            return View(bookVM);
         }
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Book obj)
+        public IActionResult Create(BookVM obj)
         {
-            Book book = new();
-            IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(
-                u => new SelectListItem
-                {
-                    Text = u.Name,
-                    Value = u.Id.ToString(),
-                });
-            ViewBag.CategoryList = CategoryList;
             if (ModelState.IsValid)
             {
-                _unitOfWork.Book.Add(obj);
+                _unitOfWork.Book.Add(obj.Book);
                 _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
             return View(obj);
         }
 
-        GET
+        //GET
         public IActionResult Edit(int? id)
         {
-            if(id == null || id == 0)
+            BookVM bookVM = new BookVM()
             {
-                return NotFound();
-            }
-            var bookFromDbFirst = _unitOfWork.Book.GetFirstOrDefault(u => u.Id == id);
-            if(bookFromDbFirst == null)
-            {
-                return NotFound();
-            }
+                CategoryList = _unitOfWork.Category.GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString(),
+                })
+            };
 
-            return View(bookFromDbFirst);
+            if (id == null || id == 0)
+            {
+                return View(bookVM);
+            }
+            else
+            {
+                bookVM.Book = _unitOfWork.Book.GetFirstOrDefault(u => u.Id == id);
+                return View(bookVM);
+            }
         }
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Book obj)
+        public IActionResult Edit(BookVM obj, IFormFile file)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Book.Update(obj);
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                if (file != null)
+                {
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(wwwRootPath, @"images\products");
+                    var extension = Path.GetExtension(file.FileName);
+
+                    if (obj.Book.Image != null)
+                    {
+                        var oldImagePath = Path.Combine(wwwRootPath, obj.Book.Image.TrimStart('\\'));
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
+                    using (var fileStream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+                    obj.Book.Image = @"images\products\" + fileName + extension;
+                }
+                _unitOfWork.Book.Update(obj.Book);
                 _unitOfWork.Save();
                 return RedirectToAction("Index");
             }

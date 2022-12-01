@@ -18,7 +18,5 @@ namespace App_Dev.Models
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-
-
     }
 }
