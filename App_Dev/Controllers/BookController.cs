@@ -4,6 +4,7 @@ using App_Dev.Repository.IRepository;
 using App_Dev.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Hosting;
 
 namespace App_Dev.Controllers
@@ -26,7 +27,8 @@ namespace App_Dev.Controllers
         }
 
         //GET
-        public IActionResult Create(int? id)
+        [HttpGet]
+        public IActionResult Create()
         {
             BookVM bookVM = new BookVM()
             {
@@ -48,7 +50,7 @@ namespace App_Dev.Controllers
             if (ModelState.IsValid)
             {
                 _unitOfWork.Book.Add(obj.Book);
-                _unitOfWork.Save();
+                _unitOfWork.Save(); ;
                 return RedirectToAction("Index");
             }
             return View(obj);
