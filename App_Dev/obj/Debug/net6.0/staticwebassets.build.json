@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fpj2sleP4CkbQkZRmjQ70etChz/menaGxj6Q9afRu4Y=",
+  "Hash": "zmD8SLHQoqLvCyPGh4PwmLzgyOuXrXeGvEmahiSi4Qw=",
   "Source": "App_Dev",
   "BasePath": "_content/App_Dev",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\AppDev_V2\\App_Dev\\wwwroot\\images\\books\\698e6805-e9fd-44d4-95d9-2bbccd91c002.jpg",
+      "SourceId": "App_Dev",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\AppDev_V2\\App_Dev\\wwwroot\\",
+      "BasePath": "_content/App_Dev",
+      "RelativePath": "images/books/698e6805-e9fd-44d4-95d9-2bbccd91c002.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\books\\698e6805-e9fd-44d4-95d9-2bbccd91c002.jpg"
     },
     {
       "Identity": "D:\\AppDev_V2\\App_Dev\\wwwroot\\images\\books\\90cdd2fd-ded1-448e-84f9-41fab89209e3.png",

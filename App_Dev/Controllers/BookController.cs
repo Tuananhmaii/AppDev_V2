@@ -22,8 +22,8 @@ namespace App_Dev.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Book> objBookList = _unitOfWork.Book.GetAll();
-            return View(objBookList);
+            IEnumerable<Book> bookList = _unitOfWork.Book.GetAll(includeProperties: "Category");
+            return View(bookList);
         }
 
         //GET

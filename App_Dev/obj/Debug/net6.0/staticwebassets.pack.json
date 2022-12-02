@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\AppDev_V2\\App_Dev\\wwwroot\\images\\books\\698e6805-e9fd-44d4-95d9-2bbccd91c002.jpg",
+      "PackagePath": "staticwebassets\\images\\books\\698e6805-e9fd-44d4-95d9-2bbccd91c002.jpg"
+    },
+    {
       "Id": "D:\\AppDev_V2\\App_Dev\\wwwroot\\images\\books\\90cdd2fd-ded1-448e-84f9-41fab89209e3.png",
       "PackagePath": "staticwebassets\\images\\books\\90cdd2fd-ded1-448e-84f9-41fab89209e3.png"
     },
