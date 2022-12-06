@@ -26,6 +26,8 @@ namespace App_Dev.Controllers
             return View(bookList);
         }
 
+        
+
         //GET
         [HttpGet]
         public IActionResult Create()

@@ -1,13 +1,14 @@
-﻿@model IEnumerable<Book>
+﻿@model Book
 
-<h1>Index Book</h1>
-<div>
-    <a asp-controller="Book" asp-action="Create">
-        Create New Book
-    </a>
-</div>
+<input asp-for="@Model.Id" hidden/>
+<h1>@Model.Name</h1>
+<h1>@Model.Author</h1>
+<h1>@Model.Price</h1>
+<h1>@Model.Description</h1>
+<h1>@Model.Category.Name</h1>
+<img src="@Model.Image" />
 
-<table>
+@*<table>
     <tbody>
         @foreach (var obj in Model)
         {
@@ -18,7 +19,7 @@
                     @obj.Image
                     @obj.Price
                     @obj.Description
-                    @obj.Category.Name
+                    @obj.Category
                 </td>
                 <td>
                     <div role="group">
@@ -29,5 +30,8 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@
+
+
+
 

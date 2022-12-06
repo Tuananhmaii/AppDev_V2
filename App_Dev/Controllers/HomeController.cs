@@ -23,6 +23,14 @@ namespace App_Dev.Controllers
             return View(bookList);
         }
 
+        public IActionResult Details(int id)
+        {
+
+            Book book = _unitOfWork.Book.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category");
+
+            return View(book);
+        }
+
         public IActionResult Privacy()
         {
             return View();

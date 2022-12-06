@@ -6,5 +6,20 @@
         <div>
             <img src="@book.Image" />
         </div>
+        <div>
+            <h1>@book.Name</h1>
+        </div>
+        <div>
+            <h1>@book.Category.Name</h1>
+        </div>
+        <div>
+            <p>@book.Author</p>
+        </div>
+        <div>
+            <h2>@book.Price</h2>
+        </div>
+        <div>
+            <a asp-action="Details" asp-route-id="@book.Id">Details</a>
+        </div>
     }
 </div>
