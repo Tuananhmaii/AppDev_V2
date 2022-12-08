@@ -1,0 +1,11 @@
+﻿@model App_Dev.ViewModels.ShoppingCartVM
+<form method="post">
+    @foreach(var item in Model.ListCart){
+        <h1>Name: @item.Book.Name</h1>
+        <h1>Author: @item.Book.Author</h1>
+        <h1>Description: @item.Book.Description</h1>
+        <h1>Price: @item.Book.Price.ToString("c")</h1>
+        <h1>Count: @item.Count</h1>
+    }
+    <h1>Total: @Model.Order.TotalPrice.ToString("c")</h1>
+</form>

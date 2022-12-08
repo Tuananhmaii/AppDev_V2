@@ -4,11 +4,10 @@
     <img src="@Model.Book.Image" />
     <h1>@Model.Book.Name</h1>
     <h1>@Model.Book.Author</h1>
-    <h1>@Model.Book.Price</h1>
     <h1>@Model.Book.Description</h1>
     <h1>@Model.Book.Price.ToString("c")</h1>
     <h1>@Model.Book.Category.Name</h1>
-    <h1>@Model.Count</h1>
+    <h1>Count</h1><input asp-for="Count"/>
     <a asp-action="Index" asp-controller="Home">Back to home</a>
     <button type="submit" value="Add to Cart">Add to cart</button>
 
