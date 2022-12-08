@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace App_Dev.Models
 {
@@ -7,14 +8,14 @@ namespace App_Dev.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public string ApplicationUserId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
+        public int OrderID { get; set; }
+        [ValidateNever]
+        public Order Order { get; set; }
         [Required]
         public int BookId { get; set; }
+        [ValidateNever]
         public Book Book { get; set; }
-        [Required]
-        public int Quantity { get; set; }
-        [Required]
-        public bool IsOrder { get; set; } = false;
+        public int Count { get; set; }
+        public double Price { get; set; }
     }
 }

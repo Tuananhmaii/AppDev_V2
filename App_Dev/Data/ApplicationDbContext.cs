@@ -16,5 +16,6 @@ namespace App_Dev.Data
         public DbSet<Request> Requests { get;set; }
         public DbSet<OrderItem> OrderItems { get;set; }
         public DbSet<Order> Orders { get;set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get;set; }
     }
 }
