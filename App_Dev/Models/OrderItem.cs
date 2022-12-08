@@ -8,7 +8,7 @@ namespace App_Dev.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public int OrderID { get; set; }
+        public int OrderId { get; set; }
         [ValidateNever]
         public Order Order { get; set; }
         [Required]

@@ -4,7 +4,7 @@
 
 namespace App_Dev.Data.Migrations
 {
-    public partial class AdjustModels : Migration
+    public partial class ModifyModels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,7 +39,7 @@ namespace App_Dev.Data.Migrations
             migrationBuilder.RenameColumn(
                 name: "Quantity",
                 table: "OrderItems",
-                newName: "OrderID");
+                newName: "OrderId");
 
             migrationBuilder.AddColumn<string>(
                 name: "Address",
@@ -99,15 +99,53 @@ namespace App_Dev.Data.Migrations
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)");
 
+            migrationBuilder.CreateTable(
+                name: "ShoppingCarts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Count = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShoppingCarts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCarts_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCarts_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
-                name: "IX_OrderItems_OrderID",
+                name: "IX_OrderItems_OrderId",
                 table: "OrderItems",
-                column: "OrderID");
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCarts_ApplicationUserId",
+                table: "ShoppingCarts",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCarts_BookId",
+                table: "ShoppingCarts",
+                column: "BookId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_OrderItems_Orders_OrderID",
+                name: "FK_OrderItems_Orders_OrderId",
                 table: "OrderItems",
-                column: "OrderID",
+                column: "OrderId",
                 principalTable: "Orders",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
@@ -116,11 +154,14 @@ namespace App_Dev.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_OrderItems_Orders_OrderID",
+                name: "FK_OrderItems_Orders_OrderId",
                 table: "OrderItems");
 
+            migrationBuilder.DropTable(
+                name: "ShoppingCarts");
+
             migrationBuilder.DropIndex(
-                name: "IX_OrderItems_OrderID",
+                name: "IX_OrderItems_OrderId",
                 table: "OrderItems");
 
             migrationBuilder.DropColumn(
@@ -148,7 +189,7 @@ namespace App_Dev.Data.Migrations
                 table: "OrderItems");
 
             migrationBuilder.RenameColumn(
-                name: "OrderID",
+                name: "OrderId",
                 table: "OrderItems",
                 newName: "Quantity");
 

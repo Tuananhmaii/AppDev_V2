@@ -6,8 +6,9 @@ namespace App_Dev.Models
 {
     public class ShoppingCart
     {
+        [Key]
         public int Id { get; set; }
-        public int BookID { get; set; }
+        public int BookId { get; set; }
         [ValidateNever]
         public Book Book { get; set; }
         public string ApplicationUserId { get; set; }

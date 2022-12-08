@@ -129,7 +129,7 @@ namespace App_Dev.Data.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("OrderID")
+                    b.Property<int>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<double>("Price")
@@ -139,7 +139,7 @@ namespace App_Dev.Data.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.HasIndex("OrderID");
+                    b.HasIndex("OrderId");
 
                     b.ToTable("OrderItems");
                 });
@@ -182,7 +182,7 @@ namespace App_Dev.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("BookID")
+                    b.Property<int>("BookId")
                         .HasColumnType("int");
 
                     b.Property<int>("Count")
@@ -195,7 +195,7 @@ namespace App_Dev.Data.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("BookID");
+                    b.HasIndex("BookId");
 
                     b.ToTable("ShoppingCarts");
                 });
@@ -455,7 +455,7 @@ namespace App_Dev.Data.Migrations
 
                     b.HasOne("App_Dev.Models.Order", "Order")
                         .WithMany()
-                        .HasForeignKey("OrderID")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -485,7 +485,7 @@ namespace App_Dev.Data.Migrations
 
                     b.HasOne("App_Dev.Models.Book", "Book")
                         .WithMany()
-                        .HasForeignKey("BookID")
+                        .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
