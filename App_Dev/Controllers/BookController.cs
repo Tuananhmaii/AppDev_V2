@@ -100,8 +100,6 @@ namespace App_Dev.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(BookVM obj, IFormFile file)
         {
-            if (ModelState.IsValid)
-            {
                 string wwwRootPath = _hostEnvironment.WebRootPath;
                 if (file != null)
                 {
@@ -127,8 +125,7 @@ namespace App_Dev.Controllers
                 _unitOfWork.Book.Update(obj.Book);
                 _unitOfWork.Save();
                 return RedirectToAction("Index");
-            }
-            return View(obj);
+                return View(obj);
         }
 
         //GET

@@ -11,6 +11,7 @@ namespace App_Dev.Models
         public string Name { get; set; }
         [Required]
         public string Author { get; set; }
+        [ValidateNever]
         public string? Image { get; set; }
         [Required]
         public double Price { get; set; }
