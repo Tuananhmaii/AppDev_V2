@@ -6,6 +6,11 @@
         <h1>Description: @item.Book.Description</h1>
         <h1>Price: @item.Book.Price.ToString("c")</h1>
         <h1>Count: @item.Count</h1>
+        <a asp-action="Plus" asp-route-cartID="@item.Id">Plus</a>
+        <a asp-action="Minus" asp-route-cartID="@item.Id">Minus</a>
+        <a asp-action="Remove" asp-route-cartID="@item.Id">Remove</a>
     }
     <h1>Total: @Model.Order.TotalPrice.ToString("c")</h1>
+    <a asp-action="Index" asp-controller="Home">Continue Shopping</a>
+    <a asp-action="" asp-controller="">Purchase</a>
 </form>
