@@ -1,7 +1,7 @@
 ﻿@model ShoppingCart
 <form method="post">
     <input asp-for="BookId" hidden />
-    <img src="@Model.Book.Image" />
+    <img src="..\..\@Model.Book.Image" />
     <h1>@Model.Book.Name</h1>
     <h1>@Model.Book.Author</h1>
     <h1>@Model.Book.Description</h1>
