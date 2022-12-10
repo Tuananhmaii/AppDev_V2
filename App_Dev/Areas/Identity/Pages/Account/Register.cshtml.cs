@@ -108,6 +108,8 @@ namespace App_Dev.Areas.Identity.Pages.Account
             public string FullName { get; set; }
             [Required]
             public string Address { get; set; }
+            public string PhoneNumber { get; set; }
+            public string City { get; set; }
             public string? Role { get; set; }
             [ValidateNever]
             public IEnumerable<SelectListItem> RoleList { get; set; }
@@ -137,6 +139,8 @@ namespace App_Dev.Areas.Identity.Pages.Account
                 var user = CreateUser();
                 user.FullName = Input.FullName;
                 user.Address = Input.Address;
+                user.PhoneNumber = Input.PhoneNumber;
+                user.City = Input.City;
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
