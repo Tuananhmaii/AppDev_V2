@@ -15,12 +15,14 @@ namespace App_Dev.Repository
             OrderItem = new OrderItemRepository(_db);
             Order = new OrderRepository(_db);
             ShoppingCart = new ShoppingCartRepository(_db);
+            ApplicationUser = new ApplicationUserRepository(_db);
         }
         public ICategoryRepository Category { get; private set; }
         public IBookRepository Book { get; private set; }
         public IOrderItemRepository OrderItem { get; private set; }
         public IOrderRepository Order { get; private set; }
         public IShoppingCartRepository ShoppingCart { get; private set; }
+        public IApplicationUserRepository ApplicationUser { get; private set; }
 
         public void Save()
         {

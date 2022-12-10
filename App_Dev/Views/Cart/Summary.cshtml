@@ -1,0 +1,22 @@
+﻿@model App_Dev.ViewModels.ShoppingCartVM
+<form method="post">
+    <input asp-for="Order.Name"/>
+    <span asp-validation-for="Order.Name"></span>
+    <input asp-for="Order.PhoneNumber" />
+    <span asp-validation-for="Order.PhoneNumber"></span>
+    <input asp-for="Order.City" />
+    <span asp-validation-for="Order.City"></span>
+    <input asp-for="Order.Address" />
+    <span asp-validation-for="Order.Address"></span>
+
+    <h1>Summary</h1>
+        @foreach (var item in Model.ListCart)
+        {
+            <h1>Book: @item.Book.Name</h1>
+            <h3>Count: @item.Count</h3>
+            <h3>Price: @((item.Price*item.Count).ToString("c"))</h3>
+        }
+        <h3>Total: @Model.Order.TotalPrice.ToString("c")</h3>
+        <p>Estimate arrival date: @DateTime.Now.ToShortDateString() - @DateTime.Now.AddDays(7).ToShortDateString()</p>
+        <button type="submit" value="Place Order">Place Order</button>
+</form>

@@ -2,6 +2,7 @@
 using App_Dev.Repository.IRepository;
 using App_Dev.Utility;
 using App_Dev.ViewModels;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -10,8 +11,6 @@ namespace App_Dev.Controllers
     public class CartController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        public int OrderTotal { get; set; }
-        [BindProperty]
         public ShoppingCartVM shoppingCartVM { get; set; }
         public CartController(IUnitOfWork unitOfWork)
         {
@@ -22,7 +21,7 @@ namespace App_Dev.Controllers
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            shoppingCartVM = new ShoppingCartVM()
+            ShoppingCartVM shoppingCartVM = new ShoppingCartVM()
             {
                 ListCart = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value,
                 includeProperties: "Book"),
@@ -36,8 +35,85 @@ namespace App_Dev.Controllers
             return View(shoppingCartVM);
         }
 
+        [HttpGet]
+        public IActionResult Summary()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            ShoppingCartVM shoppingCartVM = new ShoppingCartVM()
+            {
+                ListCart = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value,
+                includeProperties: "Book"),
+                Order = new()
+            };
+            shoppingCartVM.Order.ApplicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(
+                u => u.Id == claim.Value);
+            shoppingCartVM.Order.Name = shoppingCartVM.Order.ApplicationUser.FullName;
+            shoppingCartVM.Order.PhoneNumber = shoppingCartVM.Order.ApplicationUser.PhoneNumber;
+            shoppingCartVM.Order.City = shoppingCartVM.Order.ApplicationUser.City;
+            shoppingCartVM.Order.Address = shoppingCartVM.Order.ApplicationUser.Address;
+            foreach (var item in shoppingCartVM.ListCart)
+            {
+                item.Price = item.Book.Price;
+                shoppingCartVM.Order.TotalPrice += (item.Price * item.Count);
+            }
+            return View(shoppingCartVM);
+        }
 
+        [HttpPost]
+        [ActionName("Summary")]
+        [ValidateAntiForgeryToken]
+        public IActionResult SummaryPOST(ShoppingCartVM shoppingCartVM)
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            shoppingCartVM.ListCart = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value,
+                includeProperties: "Book");
 
+            shoppingCartVM.Order.DayCreated = DateTime.Now;
+            shoppingCartVM.Order.ApplicationUserId = claim.Value;
+
+            shoppingCartVM.Order.ApplicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(
+                u => u.Id == claim.Value);
+            shoppingCartVM.Order.Name = shoppingCartVM.Order.ApplicationUser.FullName;
+            shoppingCartVM.Order.PhoneNumber = shoppingCartVM.Order.ApplicationUser.PhoneNumber;
+            shoppingCartVM.Order.City = shoppingCartVM.Order.ApplicationUser.City;
+            shoppingCartVM.Order.Address = shoppingCartVM.Order.ApplicationUser.Address;
+
+            foreach (var item in shoppingCartVM.ListCart)
+            {
+                item.Price = item.Book.Price;
+                shoppingCartVM.Order.TotalPrice += (item.Price * item.Count);
+            }
+
+            ApplicationUser applicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(u => u.Id == claim.Value);
+            _unitOfWork.Order.Add(shoppingCartVM.Order);
+            _unitOfWork.Save();
+            foreach (var item in shoppingCartVM.ListCart)
+            {
+                OrderItem orderItem = new()
+                {
+                    OrderId = shoppingCartVM.Order.Id,
+                    BookId = item.BookId,
+                    Count = item.Count,
+                    Price = item.Price,
+                };
+                _unitOfWork.OrderItem.Add(orderItem);
+                _unitOfWork.Save();
+            }
+            return RedirectToAction("OrderConfirmation", "Cart", new { id = shoppingCartVM.Order.Id });
+        }
+
+        public IActionResult OrderConfirmation(int id)
+        {
+            Order order = _unitOfWork.Order.GetFirstOrDefault(u => u.Id == id, includeProperties: "ApplicationUser");
+
+            List<ShoppingCart> shoppingCarts = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId ==
+            order.ApplicationUserId).ToList();
+            _unitOfWork.ShoppingCart.RemoveRange(shoppingCarts);
+            _unitOfWork.Save();
+            return View(id);
+        }
 
         public IActionResult Plus(int cartId)
         {
