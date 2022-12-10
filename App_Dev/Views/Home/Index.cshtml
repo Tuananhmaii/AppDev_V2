@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<Book>
 
-<div>
+<form  asp-action="Index">
+    <input type="search" name="search" placeholder="Enter name or category" />
+    <input type="submit" value="search"  />
+</form>
+
     @foreach(var book in Model)
     {
         <div>
