@@ -9,137 +9,145 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = App_Dev
 build_property.RootNamespace = App_Dev
-build_property.ProjectDir = D:\Học hành\1670\AppDev_V2\App_Dev\
+build_property.ProjectDir = D:\AppDev\App_Dev\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Học hành\1670\AppDev_V2\App_Dev
+build_property.MSBuildProjectDirectory = D:\AppDev\App_Dev
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/Account/Login.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/Account/Logout.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/Account/Manage/Email.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/AppDev/App_Dev/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Book/Create.cshtml]
+[D:/AppDev/App_Dev/Views/Book/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Book/Delete.cshtml]
+[D:/AppDev/App_Dev/Views/Book/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Book/Edit.cshtml]
+[D:/AppDev/App_Dev/Views/Book/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Book/Index.cshtml]
+[D:/AppDev/App_Dev/Views/Book/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Cart/Index.cshtml]
+[D:/AppDev/App_Dev/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Cart/OrderConfirmation.cshtml]
+[D:/AppDev/App_Dev/Views/Cart/OrderConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxPcmRlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Cart/Summary.cshtml]
+[D:/AppDev/App_Dev/Views/Cart/Summary.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxTdW1tYXJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Categories/Create.cshtml]
+[D:/AppDev/App_Dev/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Categories/Delete.cshtml]
+[D:/AppDev/App_Dev/Views/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Categories/Edit.cshtml]
+[D:/AppDev/App_Dev/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Categories/Index.cshtml]
+[D:/AppDev/App_Dev/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Home/Details.cshtml]
+[D:/AppDev/App_Dev/Views/Home/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Home/Index.cshtml]
+[D:/AppDev/App_Dev/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Home/Privacy.cshtml]
+[D:/AppDev/App_Dev/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Shared/Error.cshtml]
+[D:/AppDev/App_Dev/Views/Order/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/AppDev/App_Dev/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/AppDev/App_Dev/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Shared/_LoginPartial.cshtml]
+[D:/AppDev/App_Dev/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/AppDev/App_Dev/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/_ViewImports.cshtml]
+[D:/AppDev/App_Dev/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/_ViewStart.cshtml]
+[D:/AppDev/App_Dev/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Học hành/1670/AppDev_V2/App_Dev/Views/Shared/_Layout.cshtml]
+[D:/AppDev/App_Dev/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-x6k0us9q2s
