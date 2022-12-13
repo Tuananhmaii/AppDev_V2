@@ -4,30 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - App_Dev</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/App_Dev.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="background-color: black !important">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">App_Dev</a>
+                <a style="color: white" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">App_Dev</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Books</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
                         </li>
@@ -37,17 +29,51 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container page-wrapper">
+        <div class="sidebar-container">
+            <ul>
+                <li class="sidebar-item">
+                    <i class="bi bi-house-fill"></i>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="sidebar-item">
+                    <i class="bi bi-journal-bookmark"></i>
+                    <a asp-area="" asp-controller="Book" asp-action="Index">Book</a>
+                </li>
+                <li class="sidebar-item">
+                    <i class="bi bi-card-list"></i>
+                    <a asp-area="" asp-controller="Categories" asp-action="Index">Category</a>
+                </li>
+            </ul>
+            <div class="famous-author">
+                <h6 class="famous-author-title">Famous Authors</h6>
+                <ul>
+                    <li class="famous-author-item"><i class="bi bi-pencil"></i>J. K. Rowling</li>
+                    <li class="famous-author-item"><i class="bi bi-pencil"></i>Stephen King</li>
+                    <li class="famous-author-item"><i class="bi bi-pencil"></i>Ernest Hemingway</li>
+                    <li class="famous-author-item"><i class="bi bi-pencil"></i>Agatha Christie</li>
+                </ul>
+            </div>
+        </div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer style="background-color: black" class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - App_Dev - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script>
+        const wrapper = document.querySelector(".page-wrapper");
+        const wrapperHeight = wrapper.offsetHeight;
+        console.log(wrapperHeight)
+        if (wrapperHeight < 612) {
+            console.log(wrapper.style.height);
+            wrapper.style.height = "612px";
+        }
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

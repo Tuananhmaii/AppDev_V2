@@ -1,29 +1,36 @@
 ﻿@model IEnumerable<Book>
-
-<form  asp-action="Index">
-    <input type="search" name="search" placeholder="Enter name or category" />
-    <input type="submit" value="search"  />
-</form>
-
-    @foreach(var book in Model)
+<div class="page-property">
+    <h1 class="homepage-title">New Arrival Book </h1>
+    <form class="search-bar" asp-action="Index">
+        <div class="search-box">
+            <button type="submit" class="btn-search"><i class="bi bi-search"></i></button>
+            <input type="text" name="search" class="input-search" placeholder="Type to Search...">
+        </div>
+    </form>
+</div>
+<div class="stick"></div>
+<div class="book-list-wrapper">
+    @foreach (var book in Model)
     {
-        <div>
-            <img src="@book.Image" />
-        </div>
-        <div>
-            <h1>Name: @book.Name</h1>
-        </div>
-        <div>
-            <h1>Category: @book.Category.Name</h1>
-        </div>
-        <div>
-            <p>Author: @book.Author</p>
-        </div>
-        <div>
-            <h2>Price: @book.Price.ToString("c")</h2>
-        </div>
-        <div>
-            <a asp-action="Details" asp-route-bookId="@book.Id">Details</a>
+        <div class="book-wrapper">
+            <a class="navigate" asp-action="Details" asp-route-bookId="@book.Id">
+                <div class="book-image" style="background-image: url('../@book.Image.Replace("\\","/")')">
+                    <div class="book-description-wrapper">
+                        <h5>@book.Name - <span class="author-name">@book.Author</span></h5>
+                        <h7>@book.Price.ToString("c")</h7>
+                    </div>
+                </div>
+            </a>
         </div>
     }
 </div>
+<script>
+    const search = document.querySelector(".btn-search");
+    const inputSearch = document.querySelector(".input-search");
+    search.addEventListener("click", function (event) {
+        if (inputSearch.value < 1) {
+            event.preventDefault();
+        }
+    });
+</script>
+

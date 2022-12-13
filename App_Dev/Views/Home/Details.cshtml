@@ -1,16 +1,75 @@
 ﻿@model ShoppingCart
-<form method="post">
+<form style="display: flex" method="post">
     <input asp-for="BookId" hidden />
-    <img src="..\..\@Model.Book.Image" />
-    <h1>@Model.Book.Name</h1>
-    <h1>@Model.Book.Author</h1>
-    <h1>@Model.Book.Description</h1>
-    <h1>@Model.Book.Price.ToString("c")</h1>
-    <h1>@Model.Book.Category.Name</h1>
-    <h1>Count</h1><input asp-for="Count"/>
-    <a asp-action="Index" asp-controller="Home">Back to home</a>
-    <button type="submit" value="Add to Cart">Add to cart</button>
-
+    <div class="book-detail-wrapper">
+        <div class="book-detail-image" style="background-image: url('../../@Model.Book.Image.Replace("\\","/")')"></div>
+        <div class="book-detail-description">
+            <h1>@Model.Book.Name</h1>
+            <h6>@Model.Book.Category.Name | by @Model.Book.Author</h6>
+            <div class="star-wrapper">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+            </div>
+            <h6 class="detail-title">Detail:</h6>
+            <h7>@Model.Book.Description</h7>
+            <h2 class="detail-price">@Model.Book.Price.ToString("c")</h2>
+            <div class="quantity-section">
+                <h5 style="margin: 0">Quantity: </h5><input min="1" class="product-quantity" asp-for="Count" />
+            </div>
+            <button class="buy-btn" type="submit" value="Add to Cart">By Now</button>
+            <button class="add-btn" type="submit" value="Add to Cart">Add to cart</button>
+        </div>
+    </div>
+    <div class="comment-section">
+        <h3 class="comment-title">Book Reviews</h3>
+        <div class="comment-item-list">
+            <div class="comment-item">
+                <div class="user-commnent-infor">
+                    <div class="comment-image-user"></div>
+                    <h6 class="comment-username">Username</h6>
+                </div>
+                <div class="comment-star">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                </div>
+                <p class="comment-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet feugiat augue, id sagittis enim tincidunt ultricies. Etiam vehicula congue ante vitae fermentum. Donec accumsan fermentum justo in dignissim. Suspendisse vitae tortor feugiat, fringilla arcu sed, lobortis purus. Nulla non pretium magna, ac dignissim turpis. Sed in sollicitudin mauris, vehicula efficitur ligula. Proin bibendum et urna a auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+            <div class="comment-item">
+                <div class="user-commnent-infor">
+                    <div class="comment-image-user"></div>
+                    <h6 class="comment-username">Username</h6>
+                </div>
+                <div class="comment-star">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                </div>
+                <p class="comment-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet feugiat augue, id sagittis enim tincidunt ultricies. Etiam vehicula congue ante vitae fermentum. Donec accumsan fermentum justo in dignissim. Suspendisse vitae tortor feugiat, fringilla arcu sed, lobortis purus. Nulla non pretium magna, ac dignissim turpis. Sed in sollicitudin mauris, vehicula efficitur ligula. Proin bibendum et urna a auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+            <div class="comment-item">
+                <div class="user-commnent-infor">
+                    <div class="comment-image-user"></div>
+                    <h6 class="comment-username">Username</h6>
+                </div>
+                <div class="comment-star">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                </div>
+                <p class="comment-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet feugiat augue, id sagittis enim tincidunt ultricies. Etiam vehicula congue ante vitae fermentum. Donec accumsan fermentum justo in dignissim. Suspendisse vitae tortor feugiat, fringilla arcu sed, lobortis purus. Nulla non pretium magna, ac dignissim turpis. Sed in sollicitudin mauris, vehicula efficitur ligula. Proin bibendum et urna a auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+        </div>
+    </div>
 </form>
 
 
