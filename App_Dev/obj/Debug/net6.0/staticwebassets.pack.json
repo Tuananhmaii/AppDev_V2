@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\images\\books\\04d692b7-26a2-4b5e-89cc-fadc4acce7d0.png"
     },
     {
+      "Id": "D:\\AppDev\\App_Dev\\wwwroot\\images\\books\\0957beda-c2c1-4729-a3d9-3ffa6a16ccc2.png",
+      "PackagePath": "staticwebassets\\images\\books\\0957beda-c2c1-4729-a3d9-3ffa6a16ccc2.png"
+    },
+    {
       "Id": "D:\\AppDev\\App_Dev\\wwwroot\\images\\books\\1ff0b1c5-a934-4509-ad0a-00b5c025a58a.png",
       "PackagePath": "staticwebassets\\images\\books\\1ff0b1c5-a934-4509-ad0a-00b5c025a58a.png"
     },
@@ -53,12 +57,20 @@
       "PackagePath": "staticwebassets\\images\\books\\58e7fd8e-371d-42a2-942a-5eb08bbfb950.png"
     },
     {
+      "Id": "D:\\AppDev\\App_Dev\\wwwroot\\images\\books\\5e7dcb2d-5de6-4837-bd9d-f7d4dcb28f1b.png",
+      "PackagePath": "staticwebassets\\images\\books\\5e7dcb2d-5de6-4837-bd9d-f7d4dcb28f1b.png"
+    },
+    {
       "Id": "D:\\AppDev\\App_Dev\\wwwroot\\images\\books\\698e6805-e9fd-44d4-95d9-2bbccd91c002.jpg",
       "PackagePath": "staticwebassets\\images\\books\\698e6805-e9fd-44d4-95d9-2bbccd91c002.jpg"
     },
     {
       "Id": "D:\\AppDev\\App_Dev\\wwwroot\\images\\books\\891a85ee-5bfa-49b1-a06e-0e706f68de4b.png",
       "PackagePath": "staticwebassets\\images\\books\\891a85ee-5bfa-49b1-a06e-0e706f68de4b.png"
+    },
+    {
+      "Id": "D:\\AppDev\\App_Dev\\wwwroot\\images\\books\\8cdb4265-5192-4972-9d9b-725c39e51192.jfif",
+      "PackagePath": "staticwebassets\\images\\books\\8cdb4265-5192-4972-9d9b-725c39e51192.jfif"
     },
     {
       "Id": "D:\\AppDev\\App_Dev\\wwwroot\\images\\books\\90cdd2fd-ded1-448e-84f9-41fab89209e3.png",

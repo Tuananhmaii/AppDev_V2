@@ -1,0 +1,20 @@
+﻿@using App_Dev.Utility;
+@model Request
+<form method="post">
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div>
+        <label asp-for="Details"></label>
+        <input asp-for="Details" />
+        <span asp-validation-for="Details"></span>
+    </div>
+    <select name="status" hidden>
+        <option value="Waiting" selected>Waiting </option>
+        <option value="Approved">Approved</option>
+        <option value="Denied">Denied</option>
+    </select>
+    <button type="submit">Create</button>
+</form>

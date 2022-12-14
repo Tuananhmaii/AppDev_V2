@@ -2,12 +2,14 @@
 using App_Dev.Repository.IRepository;
 using App_Dev.Utility;
 using App_Dev.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace App_Dev.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
