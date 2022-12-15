@@ -37,20 +37,36 @@
                     <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
                 <li class="sidebar-item">
+                    <i class="bi bi-card-list"></i>
+                    <a asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
+                </li>
+                <li class="sidebar-item">
+                    <i class="bi bi-card-list"></i>
+                    <a asp-area="" asp-controller="Order" asp-action="IndexAll">Order All</a>
+                </li>
+                <li class="sidebar-item">
+                    <i class="bi bi-card-list"></i>
+                    <a asp-area="" asp-controller="Order" asp-action="Index">Order by account</a>
+                </li>
+                <li class="sidebar-item">
                     <i class="bi bi-journal-bookmark"></i>
                     <a asp-area="" asp-controller="Book" asp-action="Index">Book</a>
                 </li>
                 <li class="sidebar-item">
                     <i class="bi bi-card-list"></i>
                     <a asp-area="" asp-controller="Categories" asp-action="Index">Category</a>
-                </li>
                 <li class="sidebar-item">
                     <i class="bi bi-card-list"></i>
-                    <a asp-area="" asp-controller="Order" asp-action="Index">Order</a>
+                    <a asp-area="" asp-controller="Request" asp-action="Index">Request</a>
+                </li>
                 </li>
                 <li class="sidebar-item">
                     <i class="bi bi-card-list"></i>
                     <a asp-area="" asp-controller="Account" asp-action="Index">Account</a>
+                </li>
+                <li class="sidebar-item">
+                    <i class="bi bi-card-list"></i>
+                    <a asp-area="Identity" asp-page="/Account/Register">Register new account</a>
                 </li>
             </ul>
             <div class="famous-author">

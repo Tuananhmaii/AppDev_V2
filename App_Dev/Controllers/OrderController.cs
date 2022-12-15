@@ -4,6 +4,7 @@ using App_Dev.Repository.IRepository;
 using App_Dev.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace App_Dev.Controllers
 {
@@ -15,9 +16,17 @@ namespace App_Dev.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult IndexAll()
         {
             IEnumerable<Order> orderList = _db.Orders;
+            return View(orderList);
+        }
+
+        public IActionResult Index()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            IEnumerable<Order> orderList = _db.Orders.Where(n => n.ApplicationUserId == claim.Value);
             return View(orderList);
         }
 

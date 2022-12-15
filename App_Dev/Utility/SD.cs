@@ -1,9 +1,9 @@
 ﻿namespace App_Dev.Utility
 {
-    public class SD
+    public static class SD
     {
-        public static string Admin_Role = "admin";
-        public static string Store_Role = "store";
-        public static string Customer_Role = "customer";
+        public const string Admin_Role = "Admin";
+        public const string Store_Role = "Store";
+        public const string Customer_Role = "Customer";
     }
 }
