@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Request>
 @foreach (var item in Model)
 {
-    <h3>@item.Id</h3>
-    <h3>@item.ApplicationUser.FullName</h3>
-    <h3>@item.Description</h3>
-    <h3>@item.Status</h3>
-    <a asp-action="Edit" asp-route-requestId ="@item.Id">Edit</a>
+        <h3>@item.Id</h3>
+        <h3>@item.ApplicationUser.FullName</h3>
+        <h3>@item.Description</h3>
+        <h3>@item.Status</h3>
+        <a asp-action="Edit" asp-route-requestId ="@item.Id">Edit</a>
 }

@@ -16,9 +16,16 @@ namespace App_Dev.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult IndexAll()
         {
             IEnumerable<Request> requestList = _db.Requests.Include("ApplicationUser");
+            return View(requestList);
+        }
+        public IActionResult Index()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            IEnumerable<Request> requestList = _db.Requests.Include("ApplicationUser").Where(n => n.ApplicationUserId == claim.Value);
             return View(requestList);
         }
         [HttpGet]
