@@ -355,11 +355,31 @@ ul {
 .table-item {
     background-color: rgba(204, 204, 204,.6);
     height: 125px;
-    width: 900px;
+
     margin: 10px;
     display: flex;
     border-radius: 7px;
     align-items: center;
+    margin-left: 245px;
+}
+
+.prop-title-wrapper {
+    display: flex;
+    background-color: rgba(204, 204, 204,.6);
+    width: 832.59px;
+    margin-left: 245px;
+    border-radius: 5px;
+    height: 40px;
+    align-items: center;
+}
+
+.table-prop-title {
+    width: 150px;
+    margin: 0;
+}
+
+.table-prop-title:first-child {
+    margin-left: 115px;
 }
 
 .table-image {
@@ -375,6 +395,43 @@ ul {
     width: 150px;
 }
 
+.table-name-prop {
+    margin-left: 20px;
+}
+
+#table-price-prop {
+    width: 100px;
+}
+
 .table-func-btn {
     margin-right: 10px;
 }
+
+.table-edit-btn, .table-delete-btn {
+    padding: 7px 10px;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.add-sth-wrapper {
+    align-items: center;
+    justify-content: center;
+}
+.add-sth-btn {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+.add-sth-wrapper:hover {
+    cursor: pointer;
+    background-color: rgba(204, 204, 204,.8);
+}
+
+.book-index-wrapper > h2 {
+    padding: 20px 40px;
+    display: inline-block;
+}
+
