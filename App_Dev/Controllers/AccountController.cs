@@ -1,6 +1,7 @@
 ﻿using App_Dev.Data;
 using App_Dev.Models;
 using App_Dev.Utility;
+using App_Dev.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,9 +12,10 @@ namespace App_Dev.Controllers
     {
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
-        public AccountController(ApplicationDbContext db, UserManager<ApplicationUser> userManager) 
-        { 
-            _db = db; 
+        PasswordHasher<ApplicationUser> passwordHasher = new PasswordHasher<ApplicationUser>();
+        public AccountController(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
+        {
+            _db = db;
             _userManager = userManager;
         }
         public IActionResult Index()
@@ -37,21 +39,26 @@ namespace App_Dev.Controllers
             return View(storeList);
         }
         [HttpGet]
-        public IActionResult ChangePassword(string accountId)
+        public IActionResult ChangePassword(string Id)
         {
-            var user = _db.ApplicationUsers.Find(accountId);
-            return View(user);
+            var user = _db.ApplicationUsers.FirstOrDefault(n => n.Id == Id);
+            UserVM userVM = new()
+            {
+                Id = user.Id,
+                Password = user.PasswordHash,
+            };
+            return View(userVM);
         }
         [HttpPost]
-        [ActionName("ChangePassword")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ChangePasswordPOST(ApplicationUser user, string password)
+        public async Task<ActionResult> ChangePassword(UserVM userVM)
         {
-
-            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-
-            var result = await _userManager.ResetPasswordAsync(user, token, password);
-            return View(user);
+                
+            var user = _db.ApplicationUsers.FirstOrDefault(n => n.Id == userVM.Id);
+            _userManager.RemovePasswordAsync(user);
+            _userManager.AddPasswordAsync(user, userVM.Password);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
