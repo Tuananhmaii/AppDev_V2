@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Book>
 <div class="book-index-wrapper">
-    <h2>FPT Store | <span style="font-size: 21px;">Book</span></h2>
+    <h2><a asp-controller="Home" asp-action="Index">FPT Store |</a><span style="padding-left: 5px; font-size: 21px;">Book</span></h2>
     <div class="prop-title-wrapper">
         <h6 class="table-prop-title">Name</h6>
         <h6 class="table-prop-title">Author</h6>
@@ -22,11 +22,9 @@
                 </div>
             </div>
         }
-        <div class="table-item add-sth-wrapper">
-            <a class="add-sth-btn" asp-controller="Book" asp-action="Create">
-                <i class="bi bi-journal-plus"></i>
-            </a>
-        </div>
+        <a class="add-sth-btn table-item add-sth-wrapper" asp-controller="Book" asp-action="Create">
+            <i class="bi bi-journal-plus"></i>
+        </a>
     </div>
 </div>
 

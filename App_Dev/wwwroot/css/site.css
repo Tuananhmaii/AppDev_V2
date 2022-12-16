@@ -435,3 +435,95 @@ ul {
     display: inline-block;
 }
 
+.book-index-wrapper > h2 > a {
+    color: black;
+    text-decoration: none;
+}
+
+/*book action form*/
+.book-action-form {
+    padding: 0 15px 5px 15px;
+    margin-top: 10px;
+    margin-left: 460px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+    border-left: 15px solid black;
+}
+
+.form-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+}
+
+.form-input-wrapper > label {
+    margin-bottom: 3px;
+    font-weight: 500;
+}
+
+.form-input-wrapper > input, select {
+    width: 175px;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.book-action-description, .book-action-image {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.book-action-image > input {
+    width: 300px;
+}
+.file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.file-input + .image-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    background-color: white;
+    border: 2px black dashed;
+    border-radius: 3px;
+    height: 150px;  
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.image-label > i {
+    margin: 0;
+    font-size: 40px;
+}
+
+.file-input:focus + .image-label,
+.file-input + .image-label:hover {
+    background-color: rgba(204, 204, 204,.6);
+    cursor: pointer;
+}
+
+.book-action-form > button {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.book-action-form > button:hover {
+    background: black;
+    color: white;
+}
+
+.create-book-title {
+    margin-left: 572px;
+}

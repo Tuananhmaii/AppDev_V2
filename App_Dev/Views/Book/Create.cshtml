@@ -1,41 +1,41 @@
 ﻿@model App_Dev.ViewModels.BookVM
 
-<form method="post" asp-action="Create" enctype="multipart/form-data">
+<div>
+    <h1 class="create-book-title">Create Book</h1>
+</div>
+<form class="book-action-form" method="post" asp-action="Create" enctype="multipart/form-data">
     <input asp-for="Book.Id" hidden />
-    <div>
-        <h1>Create Book</h1>
-    </div>
-    <div>
-        <label asp-for="Book.Name"></label>
+    <div class="form-input-wrapper">
+        <label asp-for="Book.Name"><i class="bi bi-book-half"></i> Name</label>
         <input asp-for="Book.Name" />
         <span asp-validation-for="Book.Name"></span>
     </div>
-    <div>
-        <label asp-for="Book.Author"></label>
+    <div class="form-input-wrapper">
+        <label asp-for="Book.Author"><i class="bi bi-person-lines-fill"></i> Author</label>
         <input asp-for="Book.Author" />
         <span asp-validation-for="Book.Author"></span>
     </div>
-    <div>
-        <label asp-for="Book.Price"></label>
+    <div class="form-input-wrapper">
+        <label asp-for="Book.Price"><i class="bi bi-coin"></i> Price</label>
         <input asp-for="Book.Price" />
         <span asp-validation-for="Book.Price"></span>
     </div>
-    <div>
-        <label asp-for="Book.Image"></label>
-        <input type="file" name="file" />
-    </div>
-    <div>
-        <label asp-for="Book.Description"></label>
-        <input asp-for="Book.Description" />
-        <span asp-validation-for="Book.Description"></span>
-    </div>
-    <div>
-        <label asp-for="Book.CategoryId"></label>
+    <div class="form-input-wrapper">
+        <label asp-for="Book.CategoryId"><i class="bi bi-menu-up"></i> Category</label>
         <select asp-for="Book.CategoryId" asp-items="@Model.CategoryList">
             <option disabled selected>--Select Category--</option>
         </select>
         <span asp-validation-for="Book.CategoryId"></span>
     </div>
+    <div class="form-input-wrapper book-action-image">
+        <label asp-for="Book.Image">Choose a Image</label>
+        <input class="file-input" type="file" name="file" />
+    </div>
+    <div class="form-input-wrapper book-action-description">
+        <label asp-for="Book.Description"><i class="bi bi-body-text"></i> Description</label>
+        <textarea rows="4" asp-for="Book.Description"></textarea>
+        <span asp-validation-for="Book.Description"></span>
+    </div>
     <button type="submit">Create</button>
-    <a asp-controller="Book" asp-action="Index">Back to List</a>
+    @*<a asp-controller="Book" asp-action="Index">Back to List</a>*@
 </form>
