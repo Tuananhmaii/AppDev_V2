@@ -1,7 +1,7 @@
 ﻿@model App_Dev.ViewModels.BookVM
 
 <div>
-    <h1 class="create-book-title">Create Book</h1>
+    <h2 class="create-book-title">Create Book</h2>
 </div>
 <form class="book-action-form" method="post" asp-action="Create" enctype="multipart/form-data">
     <input asp-for="Book.Id" hidden />
@@ -23,13 +23,14 @@
     <div class="form-input-wrapper">
         <label asp-for="Book.CategoryId"><i class="bi bi-menu-up"></i> Category</label>
         <select asp-for="Book.CategoryId" asp-items="@Model.CategoryList">
-            <option disabled selected>--Select Category--</option>
+            <option disabled selected>Select Category</option>
         </select>
         <span asp-validation-for="Book.CategoryId"></span>
     </div>
     <div class="form-input-wrapper book-action-image">
-        <label asp-for="Book.Image">Choose a Image</label>
-        <input class="file-input" type="file" name="file" />
+        <label asp-for="Book.Image"><i class="bi bi-image-fill"></i> Image</label>
+        <input id="file" class="file-input" type="file" name="file" />
+        <label for="file" class="image-label" asp-for="Book.Image"><i class="bi bi-arrow-bar-up"></i><p>Choose an Image</p></label>
     </div>
     <div class="form-input-wrapper book-action-description">
         <label asp-for="Book.Description"><i class="bi bi-body-text"></i> Description</label>
@@ -37,5 +38,23 @@
         <span asp-validation-for="Book.Description"></span>
     </div>
     <button type="submit">Create</button>
-    @*<a asp-controller="Book" asp-action="Index">Back to List</a>*@
+    <script>
+        var input = document.querySelector('.file-input');
+        var label = document.querySelector('.image-label');
+
+        input.addEventListener('change', function (e) {
+            
+            var fileName = '';
+            if (this.files) {
+                fileName = "<i class='bi bi-check-circle-fill'></i><p>Image Selected</p>";
+            }
+            if (fileName) {
+                console.log(fileName);
+                label.innerHTML = fileName;
+            }
+        });
+        
+
+    </script>
 </form>
+

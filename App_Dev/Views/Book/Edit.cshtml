@@ -1,46 +1,57 @@
 ﻿@model App_Dev.ViewModels.BookVM
-
-<form method="post" asp-action="Edit" enctype="multipart/form-data">
-    <input asp-for="Book.Id" hidden/>
-    <input asp-for="Book.Image" hidden/>
-    <div>
-        <h1>Edit Book</h1>
-    </div>
-    <div>
-        <label asp-for="Book.Name"></label>
+<div>
+    <h2 class="create-book-title">Edit Book</h2>
+</div>
+<form class="book-action-form" method="post" asp-action="Edit" enctype="multipart/form-data">
+    <input asp-for="Book.Id" hidden />
+    <input asp-for="Book.Image" hidden />
+    <div class="form-input-wrapper">
+        <label asp-for="Book.Name"><i class="bi bi-book-half"></i> Name</label>
         <input asp-for="Book.Name" />
         <span asp-validation-for="Book.Name"></span>
     </div>
-    <div>
-        <label asp-for="Book.Author"></label>
+    <div class="form-input-wrapper">
+        <label asp-for="Book.Author"><i class="bi bi-person-lines-fill"></i> Author</label>
         <input asp-for="Book.Author" />
         <span asp-validation-for="Book.Author"></span>
     </div>
-    <div>
-        <label asp-for="Book.Price"></label>
+    <div class="form-input-wrapper">
+        <label asp-for="Book.Price"><i class="bi bi-coin"></i> Price</label>
         <input asp-for="Book.Price" />
         <span asp-validation-for="Book.Price"></span>
     </div>
-    <div>
-        <label asp-for="Book.Image"></label>
-        <input type="file" name="file" />
-    </div>
-    <div>
-        <label asp-for="Book.Description"></label>
-        <input asp-for="Book.Description" />
-        <span asp-validation-for="Book.Description"></span>
-    </div>
-    <div>
-        <label asp-for="Book.CategoryId"></label>
+    <div class="form-input-wrapper">
+        <label asp-for="Book.CategoryId"><i class="bi bi-menu-up"></i> Category</label>
         <select asp-for="Book.CategoryId" asp-items="@Model.CategoryList">
-            <option disabled selected>--Select Category--</option>
+            <option disabled selected>Select Category</option>
         </select>
         <span asp-validation-for="Book.CategoryId"></span>
     </div>
-    <button type="submit">Edit</button>
-    <a asp-controller="Book" asp-action="Index">Back to List</a>
-    <div class="col-2">
-        <img src="..\..\@Model.Book.Image" width="100%"
-             style="border-radius:5px; border:1px solid #bbb9b9" />
+    <div class="form-input-wrapper book-action-image">
+        <label asp-for="Book.Image"><i class="bi bi-image-fill"></i> Image</label>
+        <input id="file" class="file-input" type="file" name="file" />
+        <label for="file" class="image-label" asp-for="Book.Image"> <img src="..\..\@Model.Book.Image" class="selected-image"/></label>
     </div>
+    <div class="form-input-wrapper book-action-description">
+        <label asp-for="Book.Description"><i class="bi bi-body-text"></i> Description</label>
+        <textarea rows="4" asp-for="Book.Description"></textarea>
+        <span asp-validation-for="Book.Description"></span>
+    </div>
+    <button type="submit">Edit</button>
+    <script>
+        var input = document.querySelector('.file-input');
+        var label = document.querySelector('.image-label');
+
+        input.addEventListener('change', function (e) {
+
+            var fileName = '';
+            if (this.files) {
+                fileName = "<i class='bi bi-check-circle-fill'></i><p>Image Selected</p>";
+            }
+            if (fileName) {
+                console.log(fileName);
+                label.innerHTML = fileName;
+            }
+        });
+    </script>
 </form>

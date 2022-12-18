@@ -485,6 +485,19 @@ ul {
     z-index: -1;
 }
 
+.book-action-description > textarea {
+    border: 2px black solid;
+    border-radius: 3px;
+}
+
+.form-input-wrapper > input {
+    border: 2px black solid;
+}
+
+.form-input-wrapper > select {
+    border: 2px black solid;
+}
+
 .file-input + .image-label {
     font-size: 16px;
     font-weight: 500;
@@ -492,7 +505,7 @@ ul {
     background-color: white;
     border: 2px black dashed;
     border-radius: 3px;
-    height: 150px;  
+    height: 150px;
     align-content: center;
     display: flex;
     flex-direction: column;
@@ -526,4 +539,8 @@ ul {
 
 .create-book-title {
     margin-left: 572px;
+}
+
+.selected-image {
+    height: 140px;
 }
