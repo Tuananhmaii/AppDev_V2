@@ -1,16 +1,39 @@
 ﻿@model App_Dev.ViewModels.ShoppingCartVM
-<form method="post">
-    @foreach(var item in Model.ListCart){
-        <h1>Name: @item.Book.Name</h1>
-        <h1>Author: @item.Book.Author</h1>
-        <h1>Description: @item.Book.Description</h1>
-        <h1>Price: @item.Book.Price.ToString("c")</h1>
-        <h1>Count: @item.Count</h1>
-        <a asp-action="Plus" asp-route-cartID="@item.Id">Plus</a>
-        <a asp-action="Minus" asp-route-cartID="@item.Id">Minus</a>
-        <a asp-action="Remove" asp-route-cartID="@item.Id">Remove</a>
-    }
-    <h1>Total: @Model.Order.TotalPrice.ToString("c")</h1>
-    <a asp-action="Index" asp-controller="Home">Continue Shopping</a>
-    <a asp-action="Summary">Purchase</a>
+
+<form style="height: 100%; position: relative" method="post" class="book-index-wrapper">
+    <h2><a asp-controller="Home" asp-action="Index">FPT Store |</a><span style="padding-left: 5px; font-size: 21px;">Cart</span></h2>
+    <div style="width: 930px; margin-left: 202px" class="prop-title-wrapper">
+        <h6 class="table-prop-title">Name</h6>
+        <h6 class="table-prop-title">Author</h6>
+        <h6 class="table-prop-title">Desciption</h6>
+        <h6 class="table-prop-title">Quantity</h6>
+        <h6 class="table-prop-title">Price</h6>
+    </div>
+    <div class="book-table-wrapper">
+        @foreach (var item in Model.ListCart)
+        {
+            <div style="width: 930px;  margin-left: 202px" class="table-item">
+                <div class="table-image" style="background-image: url('../../@item.Book.Image.Replace("\\","/")')"></div>
+                <h6 class="table-name-prop">@item.Book.Name</h6>
+                <h6>@item.Book.Author</h6>
+                <h6>@item.Book.Description</h6>
+                <div class="quantity-group">
+                    <a asp-action="Minus" asp-route-cartID="@item.Id"><i class="bi bi-dash-square-fill"></i></a>
+                        <h6>@item.Count</h6>
+                    <a asp-action="Plus" asp-route-cartID="@item.Id"><i class="bi bi-plus-square-fill"></i></a>
+                </div>
+                <h6 style="padding-left: 92px; margin-right: 102px;" id="table-price-prop">$@item.Book.Price</h6>
+                <div role="group" class="table-func-btn">
+                    <a class="table-edit-btn" asp-action="Delete" asp-route-cartID="@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="cart-purchase">
+        <a style="text-decoration: none; color:black; font-size: 25px" asp-action="Index" asp-controller="Home"><i class="bi bi-caret-left-fill"></i> Continue Shopping</a>
+        <div class="purchase-function">
+            <h4>Total:<span class="total-price">@Model.Order.TotalPrice.ToString("c")</span> </h4>
+            <a class="purchase-button" asp-action="Summary">Purchase</a>
+        </div>
+    </div>
 </form>

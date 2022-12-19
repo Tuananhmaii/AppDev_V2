@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/LXiyTc4RdydeG7X2hI1FvvrjzNETE6/f+cKTJzTuRs=",
+  "Hash": "MccZ2KERav8j2Xgfe2c8MRJEabwB5sDRcJYngE59dvs=",
   "Source": "App_Dev",
   "BasePath": "_content/App_Dev",
   "Mode": "Default",
@@ -1392,6 +1392,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\books\\a1957568-d00a-4eef-84b5-6b78bf12c2b5.png"
+    },
+    {
+      "Identity": "D:\\Học hành\\1670\\AppDev_V2\\App_Dev\\wwwroot\\images\\books\\a903cfc7-2b0b-4600-b43d-bbaee1122a0d.jfif",
+      "SourceId": "App_Dev",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Học hành\\1670\\AppDev_V2\\App_Dev\\wwwroot\\",
+      "BasePath": "_content/App_Dev",
+      "RelativePath": "images/books/a903cfc7-2b0b-4600-b43d-bbaee1122a0d.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\books\\a903cfc7-2b0b-4600-b43d-bbaee1122a0d.jfif"
     },
     {
       "Identity": "D:\\Học hành\\1670\\AppDev_V2\\App_Dev\\wwwroot\\images\\books\\a9b605f8-bac9-488d-81a0-1e4d576a113d.jpg",

@@ -442,7 +442,7 @@ ul {
 
 /*book action form*/
 .book-action-form {
-    padding: 0 15px 5px 15px;
+    padding: 0 15px 10px 15px;
     margin-top: 10px;
     margin-left: 460px;
     display: grid;
@@ -543,4 +543,48 @@ ul {
 
 .selected-image {
     height: 140px;
+}
+
+.quantity-group {
+    display: flex;
+    width: 65px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity-group > h6 {
+    margin: 0;  
+}
+
+.cart-purchase {
+    position: absolute;
+    bottom: 0;
+    width: 930px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 202px;
+    background: rgba(204, 204, 204,.6);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.total-price {
+    font-size: 30px;
+    color: #f02d34;
+    padding-left: 10px;
+}
+
+.purchase-function {
+    display: flex;
+    align-items: center;
+}
+
+.purchase-button {
+    padding: 6px 20px;
+    background: #f02d34;
+    color: white;
+    border-radius: 5px;
+    margin-left: 20px;
+    text-decoration: none;
 }
