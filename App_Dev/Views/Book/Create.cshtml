@@ -29,7 +29,7 @@
     </div>
     <div class="form-input-wrapper book-action-image">
         <label asp-for="Book.Image"><i class="bi bi-image-fill"></i> Image</label>
-        <input id="file" class="file-input" type="file" name="file" />
+        <input id="uploadBox" class="file-input" type="file" name="file" />
         <label for="file" class="image-label" asp-for="Book.Image"><i class="bi bi-arrow-bar-up"></i><p>Choose an Image</p></label>
     </div>
     <div class="form-input-wrapper book-action-description">
@@ -37,7 +37,7 @@
         <textarea rows="4" asp-for="Book.Description"></textarea>
         <span asp-validation-for="Book.Description"></span>
     </div>
-    <button type="submit">Create</button>
+    <button type="submit" onclick="return ValidateInput()" >Create</button>
     <script>
         var input = document.querySelector('.file-input');
         var label = document.querySelector('.image-label');
@@ -57,4 +57,21 @@
 
     </script>
 </form>
+
+@section Scripts{
+    <script>
+        function ValidateInput() {
+            if(document.getElementById("uploadBox").value==""){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please upload an image!',
+                    footer: '<a href="">Why do I have this issue?</a>'
+                });
+                return false;
+            }
+            return true;
+        }
+    </script>
+}
 
