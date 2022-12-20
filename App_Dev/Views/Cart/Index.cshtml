@@ -7,7 +7,7 @@
         <h6 class="table-prop-title">Author</h6>
         <h6 class="table-prop-title">Desciption</h6>
         <h6 class="table-prop-title">Quantity</h6>
-        <h6 class="table-prop-title">Total price</h6>
+        <h6 class="table-prop-title">Price</h6>
     </div>
     <div class="book-table-wrapper">
         @foreach (var item in Model.ListCart)
@@ -22,7 +22,7 @@
                         <h6>@item.Count</h6>
                     <a asp-action="Plus" asp-route-cartID="@item.Id"><i class="bi bi-plus-square-fill"></i></a>
                 </div>
-                <h6 style="padding-left: 92px; margin-right: 102px;" id="table-price-prop">$@(@item.Book.Price * @item.Count)</h6>
+                <h6 style="padding-left: 88px; margin-right: 102px;" id="table-price-prop">$@(@item.Book.Price * @item.Count)</h6>
                 <div role="group" class="table-func-btn">
                     <a class="table-edit-btn" asp-action="Delete" asp-route-cartID="@item.Id"><i class="bi bi-trash"></i> Delete</a>
                 </div>

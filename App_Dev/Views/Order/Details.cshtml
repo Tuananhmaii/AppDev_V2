@@ -1,12 +1,17 @@
 ﻿@model App_Dev.ViewModels.OrderVM
-<input disabled asp-for="Order.Name" />
-<input disabled asp-for="Order.PhoneNumber" />
-<input disabled asp-for="Order.City" />
-<input disabled asp-for="Order.Address" />
-@foreach (var item in Model.OrderItem){
-    <h1>Name: @item.Book.Name</h1>
-    <h3>Author: @item.Book.Author</h3>
-    <h3>Description: @item.Book.Description</h3>
-    <h3>Price: @item.Book.Price.ToString("c")</h3>
-    <h3>Count: @item.Count</h3>
-}
+<div>
+    <input disabled asp-for="Order.Name" />
+    <input disabled asp-for="Order.PhoneNumber" />
+    <input disabled asp-for="Order.City" />
+    <input disabled asp-for="Order.Address" />
+    @foreach (var item in Model.OrderItem)
+    {
+        <div>
+            <h1>Name: @item.Book.Name</h1>
+            <h3>Author: @item.Book.Author</h3>
+            <h3>Description: @item.Book.Description</h3>
+            <h3>Price: @item.Book.Price.ToString("c")</h3>
+            <h3>Count: @item.Count</h3>
+        </div>
+    }
+</div>

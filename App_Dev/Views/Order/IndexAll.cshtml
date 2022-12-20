@@ -1,10 +1,24 @@
 ﻿@model IEnumerable<Order>
-@foreach (var item in Model){
-    <h3>@item.Id</h3>
-    <h3>@item.Name</h3>
-    <h3>@item.PhoneNumber</h3>
-    <h3>@item.City</h3>
-    <h3>@item.Address</h3>
-    <h3>@item.TotalPrice.ToString("c")</h3>
-    <a asp-action="Details" asp-route-orderId="@item.Id">Details</a>
-}
+<div class="book-index-wrapper">
+    <h2><a asp-controller="Home" asp-action="Index">FPT Store |</a><span style="padding-left: 5px; font-size: 21px;">Order</span></h2>
+    <div style="width: 996px; margin-left: 171px" class="prop-title-wrapper">
+        <h6 style="margin-left: 26px; width: 132px;" class="table-prop-title">Order ID</h6>
+        <h6 class="table-prop-title">Name</h6>
+        <h6 class="table-prop-title">Phone</h6>
+        <h6 class="table-prop-title">City</h6>
+        <h6 class="table-prop-title">Address</h6>
+        <h6 class="table-prop-title">Price</h6>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div style="margin-left: 171px" class="table-item">
+            <h6 style="width: 108px; margin-left: 50px;">@item.Id</h6>
+            <h6>@item.Name</h6>
+            <h6>@item.PhoneNumber</h6>
+            <h6>@item.City</h6>
+            <h6>@item.Address</h6>
+            <h6>@item.TotalPrice.ToString("c")</h6>
+            <a style="margin-right: 20px;" class="table-edit-btn" asp-action="Details" asp-route-orderId="@item.Id">Details</a>
+        </div>
+    }
+</div>

@@ -588,3 +588,69 @@ ul {
     margin-left: 20px;
     text-decoration: none;
 }
+
+.order-btn {
+    margin-left: 30px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background: #f02d34;
+    color: white;
+}
+
+.order-success {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1300px;
+}
+
+/*account page*/
+
+.account-list {
+    display: grid;
+    grid-template-columns: repeat(4, 275px);
+    gap: 30px;
+    margin-left: 66px;
+}
+
+.account-item {
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.change-pass-btn {
+    padding: 8px 20px;
+    color: white;
+    background: black;
+    margin: 8px 0;
+    margin-left: 40px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.account-filter {
+    padding: 20px;
+    margin-left: 46px;
+}
+
+.account-filter > a {
+    color: black;
+    padding: 3px 10px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.account-filter > h6 {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+
+

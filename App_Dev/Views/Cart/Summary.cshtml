@@ -1,22 +1,37 @@
 ﻿@model App_Dev.ViewModels.ShoppingCartVM
 <form method="post">
-    <input asp-for="Order.Name"/>
-    <span asp-validation-for="Order.Name"></span>
-    <input asp-for="Order.PhoneNumber" />
-    <span asp-validation-for="Order.PhoneNumber"></span>
-    <input asp-for="Order.City" />
-    <span asp-validation-for="Order.City"></span>
-    <input asp-for="Order.Address" />
-    <span asp-validation-for="Order.Address"></span>
-
-    <h1>Summary</h1>
+    <div style="margin-left: 280px;" class="customer-infor-wrapper">
+        <input asp-for="Order.Name" />
+        <span asp-validation-for="Order.Name"></span>
+        <input asp-for="Order.PhoneNumber" />
+        <span asp-validation-for="Order.PhoneNumber"></span>
+        <input asp-for="Order.City" />
+        <span asp-validation-for="Order.City"></span>
+        <input asp-for="Order.Address" />
+        <span asp-validation-for="Order.Address"></span>
+    </div>
+    <div class="book-index-wrapper">
+        <h2 style="padding: 15px 115px">Order Summary</h2>
+        <div style="width: 930px; margin-left: 202px" class="prop-title-wrapper">
+            <h6 class="table-prop-title">Name</h6>
+            <h6 class="table-prop-title">Quantity</h6>
+            <h6 class="table-prop-title">Price</h6>
+        </div>
         @foreach (var item in Model.ListCart)
         {
-            <h1>Book: @item.Book.Name</h1>
-            <h3>Count: @item.Count</h3>
-            <h3>Price: @((item.Price*item.Count).ToString("c"))</h3>
+            <div style="width: 930px;  margin-left: 202px" class="table-item">
+                <div class="table-image" style="background-image: url('../../@item.Book.Image.Replace("\\","/")')"></div>
+                <h6 class="table-name-prop">@item.Book.Name</h6>
+                <h6 style="padding-left: 28px;">@item.Count</h6>
+                <h6>@((item.Price * item.Count).ToString("c"))</h6>
+            </div>
         }
-        <h3>Total: @Model.Order.TotalPrice.ToString("c")</h3>
-        <p>Estimate arrival date: @DateTime.Now.ToShortDateString() - @DateTime.Now.AddDays(7).ToShortDateString()</p>
-        <button type="submit" value="Place Order">Place Order</button>
+    </div>
+    <div class="cart-purchase">
+        <p style="margin: 0">Estimate arrival date: @DateTime.Now.ToShortDateString() - @DateTime.Now.AddDays(7).ToShortDateString()</p>
+        <div class="purchase-function">
+            <h4>Total:<span class="total-price">@Model.Order.TotalPrice.ToString("c")</span> </h4>
+            <button class="order-btn" type="submit" value="Place Order">Place Order</button>
+        </div>
+    </div>
 </form>

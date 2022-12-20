@@ -1389,3 +1389,4 @@ D:\New folder\App_Dev\obj\Debug\net6.0\App_Dev.pdb
 D:\New folder\App_Dev\obj\Debug\net6.0\App_Dev.genruntimeconfig.cache
 D:\New folder\App_Dev\obj\Debug\net6.0\ref\App_Dev.dll
 D:\AppDev_V2\App_Dev\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
+D:\Học hành\1670\AppDev_V2\App_Dev\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
