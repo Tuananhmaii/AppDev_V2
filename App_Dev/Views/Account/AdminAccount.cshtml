@@ -1,13 +1,23 @@
 ﻿@model IEnumerable<ApplicationUser>
-<a asp-action="Index">All</a>
-<a asp-action="AdminAccount">Admin</a>
-<a asp-action="StoreAccount">Store</a>
-<a asp-action="CustomerAccount">Customer</a>
-@foreach (var item in Model){
-    <h3>@item.Email</h3>
-    <h3>@item.FullName</h3>
-    <h3>@item.PhoneNumber</h3>
-    <h3>@item.City</h3>
-    <h3>@item.Address</h3>
-    <a asp-action="ChangePassword" asp-route-accountId="@item.Id">Change password</a>
-}
+<div class="account-list-wrapper">
+    <div class="account-filter">
+        <h6>Account filter: </h6>
+        <a asp-action="Index">All</a>
+        <a asp-action="AdminAccount">Admin</a>
+        <a asp-action="StoreAccount">Store</a>
+        <a asp-action="CustomerAccount">Customer</a>
+    </div>
+    <div class="account-list">
+        @foreach (var item in Model)
+        {
+            <div class="account-item">
+                <h6><span>Email: </span>@item.Email</h6>
+                <h6><span>Full Name: </span>@item.FullName</h6>
+                <h6><span>Phone Number: </span>@item.PhoneNumber</h6>
+                <h6><span>City: </span>@item.City</h6>
+                <h6><span>Address: </span>@item.Address</h6>
+                <a class="change-pass-btn" asp-action="ChangePassword" asp-route-Id="@item.Id">Change password</a>
+            </div>
+        }
+    </div>
+</div>
