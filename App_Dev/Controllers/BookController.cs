@@ -74,7 +74,8 @@ namespace App_Dev.Controllers
                     obj.Book.Image = @"images\books\" + fileName + extension;
                 }
                 _unitOfWork.Book.Add(obj.Book);
-                _unitOfWork.Save(); ;
+                _unitOfWork.Save();
+                TempData["success"] = "Book created successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -124,8 +125,8 @@ namespace App_Dev.Controllers
                 }
                 _unitOfWork.Book.Update(obj.Book);
                 _unitOfWork.Save();
+                TempData["success"] = "Book updated successfully";
                 return RedirectToAction("Index");
-                return View(obj);
         }
 
         //GET
@@ -162,6 +163,7 @@ namespace App_Dev.Controllers
 
             _unitOfWork.Book.Remove(obj);
             _unitOfWork.Save();
+            TempData["success"] = "Book deleted successfully";
             return RedirectToAction("Index");
         }
     }

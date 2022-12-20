@@ -42,6 +42,7 @@ namespace App_Dev.Controllers
             request.Status = "Waiting";
             _db.Requests.Add(request);
             _db.SaveChanges();
+            TempData["success"] = "Send request successfully";
             return RedirectToAction("Index");
         }
         public IActionResult Edit(int requestId)
@@ -54,6 +55,7 @@ namespace App_Dev.Controllers
         {
             _db.Requests.Update(request);
             _db.SaveChanges();
+            TempData["success"] = "Request updated successfully";
             return RedirectToAction("Index");
         }
     }

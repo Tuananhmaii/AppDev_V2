@@ -29,7 +29,7 @@
     </div>
     <div class="form-input-wrapper book-action-image">
         <label asp-for="Book.Image"><i class="bi bi-image-fill"></i> Image</label>
-        <input id="uploadBox" class="file-input" type="file" name="file" />
+        <input id="file" class="file-input" type="file" name="file" />
         <label for="file" class="image-label" asp-for="Book.Image"><i class="bi bi-arrow-bar-up"></i><p>Choose an Image</p></label>
     </div>
     <div class="form-input-wrapper book-action-description">
@@ -61,7 +61,7 @@
 @section Scripts{
     <script>
         function ValidateInput() {
-            if(document.getElementById("uploadBox").value==""){
+            if(document.getElementById("file").value==""){
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
