@@ -1,10 +1,14 @@
 ﻿using App_Dev.Data;
 using App_Dev.Models;
 using App_Dev.Repository.IRepository;
+using App_Dev.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace App_Dev.Controllers
 {
+    [Authorize(Roles = SD.Admin_Role + "," + SD.Store_Role)]
     public class CategoriesController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

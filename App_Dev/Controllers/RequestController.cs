@@ -9,6 +9,7 @@ using System.Security.Claims;
 
 namespace App_Dev.Controllers
 {
+    [Authorize]
     public class RequestController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -16,6 +17,7 @@ namespace App_Dev.Controllers
         {
             _db = db;
         }
+        [Authorize(Roles = SD.Admin_Role)]
         public IActionResult IndexAll()
         {
             IEnumerable<Request> requestList = _db.Requests.Include("ApplicationUser");
@@ -56,7 +58,7 @@ namespace App_Dev.Controllers
             _db.Requests.Update(request);
             _db.SaveChanges();
             TempData["success"] = "Request updated successfully";
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexAll");
         }
     }
 }

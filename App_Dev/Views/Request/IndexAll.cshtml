@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Request>
+﻿@using App_Dev.Utility;
+@model IEnumerable<Request>
 <div class="book-index-wrapper">
     <h2><a asp-controller="Home" asp-action="Index">FPT Store |</a><span style="padding-left: 5px; font-size: 21px;">Request</span></h2>
     <div style="width: 675px; margin-left: 331px" class="prop-title-wrapper">
@@ -14,7 +15,9 @@
             <h6>@item.ApplicationUser.FullName</h6>
             <h6>@item.Description</h6>
             <h6>@item.Status</h6>
-            <a style="margin-right: 20px;" class="table-edit-btn" asp-action="Edit" asp-route-requestId ="@item.Id">Edit</a>
+            @if(User.IsInRole(SD.Admin_Role)){
+                <a style="margin-right: 20px;" class="table-edit-btn" asp-action="Edit" asp-route-requestId="@item.Id">Edit</a>
+            }
         </div>
     }
 </div>

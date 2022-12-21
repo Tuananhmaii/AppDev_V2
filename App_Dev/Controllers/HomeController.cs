@@ -27,7 +27,7 @@ namespace App_Dev.Controllers
 
         public IActionResult Index(string? search)
         {
-            if(search != null)
+            if (search != null)
             {
                 IEnumerable<Book> searchList = _db.Books.Where(u => u.Name.Contains(search) || u.Category.Name.Contains(search) ||
                                                                 u.Author.Contains(search)).Include("Category");

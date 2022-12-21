@@ -1,9 +1,12 @@
 ﻿using App_Dev.Data;
 using App_Dev.Models;
 using App_Dev.Repository.IRepository;
+using App_Dev.Utility;
 using App_Dev.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Security.Claims;
 
 namespace App_Dev.Controllers
@@ -15,7 +18,7 @@ namespace App_Dev.Controllers
         {
             _db = db;
         }
-
+        [Authorize(Roles = SD.Admin_Role + "," + SD.Store_Role)]
         public IActionResult IndexAll()
         {
             IEnumerable<Order> orderList = _db.Orders;
@@ -30,6 +33,7 @@ namespace App_Dev.Controllers
             return View(orderList);
         }
 
+        [Authorize(Roles = SD.Admin_Role + "," + SD.Store_Role)]
         [HttpGet]
         public IActionResult Details(int orderId)
         {

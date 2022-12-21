@@ -2,12 +2,14 @@
 using App_Dev.Models;
 using App_Dev.Utility;
 using App_Dev.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace App_Dev.Controllers
 {
+    [Authorize(Roles = SD.Admin_Role)]
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _db;

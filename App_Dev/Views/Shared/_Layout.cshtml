@@ -15,7 +15,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="background-color: black !important">
             <div class="container-fluid">
-                <a style="color: white" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">App_Dev</a>
+                <a style="color: white" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FPTBook</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,16 +39,16 @@
                 </li>
                 <li class="sidebar-item">
                     <i class="bi bi-card-list"></i>
-                    <a asp-area="" asp-controller="Order" asp-action="Index">Order by account</a>
+                    <a asp-area="" asp-controller="Order" asp-action="Index">Order</a>
                 </li>
                 @if (User.IsInRole(SD.Admin_Role))
                 {
                     <li class="sidebar-item">
                         <i class="bi bi-card-list"></i>
-                        <a asp-area="" asp-controller="Order" asp-action="IndexAll">Order All</a>
+                        <a asp-area="" asp-controller="Order" asp-action="IndexAll">All Order</a>
                     </li>
                 }
-                @if (!User.IsInRole(SD.Customer_Role))
+                @if (User.IsInRole(SD.Store_Role) || User.IsInRole(SD.Admin_Role))
                 {
                     <li class="sidebar-item">
                         <i class="bi bi-journal-bookmark"></i>
@@ -70,7 +70,7 @@
                 {
                     <li class="sidebar-item">
                         <i class="bi bi-card-list"></i>
-                        <a asp-area="" asp-controller="Request" asp-action="IndexAll">Request All</a>
+                        <a asp-area="" asp-controller="Request" asp-action="IndexAll">All Request</a>
                     </li>
 
                     <li class="sidebar-item">
@@ -101,7 +101,7 @@
 
     <footer style="background-color: black" class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - App_Dev - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - FPTBook - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script>

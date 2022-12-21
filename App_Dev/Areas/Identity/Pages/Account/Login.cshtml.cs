@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using App_Dev.Models;
+using App_Dev.Utility;
 
 namespace App_Dev.Areas.Identity.Pages.Account
 {
@@ -22,11 +23,13 @@ namespace App_Dev.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager = userManager;
         }
 
         /// <summary>
@@ -115,8 +118,20 @@ namespace App_Dev.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    var user = await _userManager.FindByEmailAsync(Input.Email);
+                    var roles = await _userManager.GetRolesAsync(user);
+                    if (roles.Contains(SD.Admin_Role))
+                    {
+                        return RedirectToAction("Index", "Account");
+                    }
+                    if (roles.Contains(SD.Customer_Role))
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    if (roles.Contains(SD.Store_Role))
+                    {
+                        return RedirectToAction("IndexAll", "Order");
+                    }
                 }
                 if (result.RequiresTwoFactor)
                 {

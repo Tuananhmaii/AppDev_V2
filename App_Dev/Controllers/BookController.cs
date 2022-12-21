@@ -1,14 +1,18 @@
 ﻿using App_Dev.Data;
 using App_Dev.Models;
 using App_Dev.Repository.IRepository;
+using App_Dev.Utility;
 using App_Dev.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Hosting;
+using System.Data;
 
 namespace App_Dev.Controllers
 {
+    [Authorize(Roles = SD.Admin_Role +","+ SD.Store_Role)]
     public class BookController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -25,9 +29,6 @@ namespace App_Dev.Controllers
             IEnumerable<Book> bookList = _unitOfWork.Book.GetAll(includeProperties: "Category");
             return View(bookList);
         }
-
-        
-
         //GET
         [HttpGet]
         public IActionResult Create()
