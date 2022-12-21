@@ -4,17 +4,17 @@
 <form class="request-form-wrapper" method="post">
     <input asp-for="Id" hidden />
     <div class="request-infor">
-        <label asp-for="ApplicationUserId">User ID:</label>
+        <label asp-for="ApplicationUserId"><i class="bi bi-person-circle"></i> User ID:</label>
         <input asp-for="ApplicationUserId" />
         <span asp-validation-for="ApplicationUserId"></span>
     </div>
     <div class="request-infor">
-        <label asp-for="Description">Description:</label>
+        <label asp-for="Description"><i class="bi bi-chat-square-text"></i> Description:</label>
         <input asp-for="Description" />
         <span asp-validation-for="Description"></span>
     </div>
     <div class="request-infor">
-        <label asp-for="Details">Details:</label>
+        <label asp-for="Details"><i class="bi bi-card-text"></i> Details:</label>
         <input asp-for="Details" /> 
         <span asp-validation-for="Details"></span>
     </div>
