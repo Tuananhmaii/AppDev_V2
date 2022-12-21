@@ -29,7 +29,8 @@ namespace App_Dev.Controllers
         {
             if(search != null)
             {
-                IEnumerable<Book> searchList = _db.Books.Where(u => u.Name.Contains(search) || u.Category.Name.Contains(search)).Include("Category");
+                IEnumerable<Book> searchList = _db.Books.Where(u => u.Name.Contains(search) || u.Category.Name.Contains(search) ||
+                                                                u.Author.Contains(search)).Include("Category");
                 return View(searchList);
             }
             IEnumerable<Book> bookList = _unitOfWork.Book.GetAll(includeProperties: "Category");

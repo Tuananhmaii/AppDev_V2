@@ -55,9 +55,9 @@ namespace App_Dev.Controllers
         {
                 
             var user = _db.ApplicationUsers.FirstOrDefault(n => n.Id == userVM.Id);
-            _userManager.RemovePasswordAsync(user);
-            _userManager.AddPasswordAsync(user, userVM.Password);
-            _db.SaveChanges();
+            await _userManager.RemovePasswordAsync(user);
+            await _userManager.AddPasswordAsync(user, userVM.Password);
+            await _db.SaveChangesAsync();
             TempData["success"] = "Change password successfully";
             return RedirectToAction("Index");
         }
