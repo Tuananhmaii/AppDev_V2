@@ -1,9 +1,20 @@
 ﻿@model IEnumerable<Request>
-@foreach (var item in Model)
-{
-        <h3>@item.Id</h3>
-        <h3>@item.ApplicationUser.FullName</h3>
-        <h3>@item.Description</h3>
-        <h3>@item.Status</h3>
-        <a asp-action="Edit" asp-route-requestId ="@item.Id">Edit</a>
-}
+<div class="book-index-wrapper">
+    <h2><a asp-controller="Home" asp-action="Index">FPT Store |</a><span style="padding-left: 5px; font-size: 21px;">Request</span></h2>
+    <div style="width: 675px; margin-left: 331px" class="prop-title-wrapper">
+        <h6 style="margin-left: 26px; width: 132px;" class="table-prop-title">Request ID</h6>
+        <h6 class="table-prop-title">Requester</h6>
+        <h6 class="table-prop-title">Description</h6>
+        <h6 class="table-prop-title">Status</h6>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div style="margin-left: 331px; width: 675px;" class="table-item">
+            <h6 style="width: 99px; margin-left: 59px;">@item.Id</h6>
+            <h6>@item.ApplicationUser.FullName</h6>
+            <h6>@item.Description</h6>
+            <h6>@item.Status</h6>
+            <a style="margin-right: 20px;" class="table-edit-btn" asp-action="Edit" asp-route-requestId="@item.Id">Edit</a>
+        </div>
+    }
+</div>

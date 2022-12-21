@@ -1,14 +1,18 @@
 ﻿@model Request
-<form method="post">
-    <div>
-        <label asp-for="Description"></label>
-        <input asp-for="Description" />
-        <span asp-validation-for="Description"></span>
-    </div>
-    <div>
-        <label asp-for="Details"></label>
+<div>
+    <h1 class="create-book-title">Add Request</h1>
+</div>
+<form style="margin-top: 36px; margin-left: 574px; display: flex; flex-direction: column;" class="book-action-form" method="post">
+
+    <div class="form-input-wrapper">
+        <label asp-for="Details"> <i class="bi bi-file-earmark-binary"></i> Details</label>
         <input asp-for="Details" />
         <span asp-validation-for="Details"></span>
     </div>
-    <button type="submit">Create</button>
+    <div class="form-input-wrapper">
+        <label asp-for="Description"> <i class="bi bi-file-earmark-binary"></i> Description</label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <button style="width: 175px; margin-top: 10px" type="submit">Create</button>
 </form>

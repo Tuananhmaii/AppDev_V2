@@ -99,7 +99,7 @@ body {
 .search-bar {
     position: absolute;
     right: 50px;
-    top: 100px;
+    top: 30px;
 }
 
 .search-box {
@@ -652,5 +652,46 @@ ul {
     padding-right: 10px;
 }
 
+/*request form edit*/
+.request-infor {
+    margin-bottom: 10px;
+}
 
+.request-infor > label {
+    width: 125px;
+    font-size: 17px;
+    font-weight: 600;
+}
 
+.request-infor > input {
+    border: none;
+    width: 300px;
+}
+
+.request-grp {
+    display: flex;
+    width: 100%;
+}
+
+.request-grp > button {
+    padding: 3px 10px;
+    background: black;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.request-status {
+    padding: 3px 10px;
+    height: 34px;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.request-form-wrapper {
+    margin-left: 455px;
+    padding: 10px;
+    margin-top: 30px;
+    border-left: 12px solid black;
+}
