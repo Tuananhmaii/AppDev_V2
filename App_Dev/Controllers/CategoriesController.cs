@@ -76,26 +76,9 @@ namespace App_Dev.Controllers
             return View(obj);
         }
 
-        //GET
-        public IActionResult Delete(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            var categoryFromDbFirst = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
-            if (categoryFromDbFirst == null)
-            {
-                return NotFound();
-            }
-
-            return View(categoryFromDbFirst);
-        }
-
         //POST
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public IActionResult DeletePOST(int? id)
+        [HttpGet]
+        public IActionResult Delete(int id)
         {
             var obj = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
             if(obj == null)
