@@ -1,6 +1,46 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
+<div style="padding: 40px; padding-left: 100px" class="container">
+  <div style="display: flex">
+  <div>
+    <h1>Let's get you</br> some help!</h1>
+    <h6>Have any issue? Send us an <span class="email-us">email.</span></h6>
+  </div>
 
-<p>Use this page to detail your site's privacy policy.</p>
+        <div style="padding: 13px 40px 13px 40px; border-right: 3px solid black;">
+      <div class="form-group">
+        <label for="list">What list are you looking for ?</label>
+        <input type="text" class="form-control" id="list" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <label for="tags">Please Few Primary Tags ?</label>
+        <input type="text" class="form-control" id="tags">
+      </div>
+      
+      <div class="form-group">
+        <label for="describe">Please desribe your list needs ?</label>
+        <textarea type="text" class="form-control" id="describe" rows="5"></textarea>
+      </div>
+      
+       <div class="form-group">
+        <label for="exampleFormControlSelect1">Select Category</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+     </div> 
+    <button type="button" class="btn btn-primary"><span>Submit</span> <i class="fas fa-long-arrow-alt-right"></i></button>
+  </div>
+     <div style="display: flex; flex-direction: column; gap: 10px; padding-left: 40px">
+         <h2>Contact Us</h2>
+         <h5>Hotline 1: 0123456789</h5>
+         <h5>Hotline 2: 0123456789</h5>
+         <h5>Email: adminFPTBook@gmail.com</h5>
+         <h5>Address: 32 Ton Duc Thang, Nai Hien Dong, Thanh Khe, Da Nang</h5>
+     </div>
+  </div>
+</div>

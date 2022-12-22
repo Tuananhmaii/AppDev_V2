@@ -101,7 +101,11 @@
 
     <footer style="background-color: black" class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - FPTBook - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - FPTBook -
+            @if (User.IsInRole(SD.Customer_Role))
+            {
+                <a asp-area="" asp-controller="Home" asp-action="Privacy"> Help</a>
+            }
         </div>
     </footer>
     <script>

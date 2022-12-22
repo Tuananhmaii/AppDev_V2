@@ -1,9 +1,5 @@
 ﻿@using App_Dev.Utility
 @model IEnumerable<Book>
-@if (User.IsInRole(SD.Customer_Role))
-{
-    <a asp-action="HelpPage">Help Page</a>
-}
 <div class="page-property">
     <h1 class="homepage-title">New Arrival Book </h1>
     <form class="search-bar" asp-action="Index">
