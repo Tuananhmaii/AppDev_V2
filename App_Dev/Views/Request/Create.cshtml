@@ -5,14 +5,14 @@
 <form style="margin-top: 36px; margin-left: 574px; display: flex; flex-direction: column;" class="book-action-form" method="post">
 
     <div class="form-input-wrapper">
-        <label asp-for="Details"><i class="bi bi-card-text"></i> Details</label>
-        <input asp-for="Details" />
-        <span asp-validation-for="Details"></span>
-    </div>
-    <div class="form-input-wrapper">
         <label asp-for="Description"><i class="bi bi-chat-square-text"></i> Description</label>
         <input asp-for="Description" />
         <span asp-validation-for="Description"></span>
+    </div>
+    <div class="form-input-wrapper">
+        <label asp-for="Details"><i class="bi bi-card-text"></i> Details</label>
+        <input asp-for="Details" />
+        <span asp-validation-for="Details"></span>
     </div>
     <button style="width: 175px; margin-top: 10px" type="submit">Create</button>
 </form>

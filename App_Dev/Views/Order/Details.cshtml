@@ -1,17 +1,34 @@
 ﻿@model App_Dev.ViewModels.OrderVM
 <div>
-    <input disabled asp-for="Order.Name" />
-    <input disabled asp-for="Order.PhoneNumber" />
-    <input disabled asp-for="Order.City" />
-    <input disabled asp-for="Order.Address" />
-    @foreach (var item in Model.OrderItem)
-    {
-        <div>
-            <h1>Name: @item.Book.Name</h1>
-            <h3>Author: @item.Book.Author</h3>
-            <h3>Description: @item.Book.Description</h3>
-            <h3>Price: @item.Book.Price.ToString("c")</h3>
-            <h3>Count: @item.Count</h3>
+    <div style="margin-left: 280px;" class="customer-infor-wrapper">
+        <input asp-for="Order.Name" />
+        <span asp-validation-for="Order.Name"></span>
+        <input asp-for="Order.PhoneNumber" />
+        <span asp-validation-for="Order.PhoneNumber"></span>
+        <input asp-for="Order.City" />
+        <span asp-validation-for="Order.City"></span>
+        <input asp-for="Order.Address" />
+        <span asp-validation-for="Order.Address"></span>
+    </div>
+    <div class="book-index-wrapper">
+        <h2 style="padding: 15px 115px">Order Detail</h2>
+        <div style="width: 930px; margin-left: 202px" class="prop-title-wrapper">
+            <h6 class="table-prop-title">Name</h6>
+            <h6 class="table-prop-title">Author</h6>
+            <h6 class="table-prop-title">Description</h6>
+            <h6 class="table-prop-title">Quantity</h6>
+            <h6 class="table-prop-title">Price</h6>
         </div>
-    }
+        @foreach (var item in Model.OrderItem)
+        {
+            <div style="width: 930px;  margin-left: 202px" class="table-item">
+                <div class="table-image" style="background-image: url('../../@item.Book.Image.Replace("\\","/")')"></div>
+                <h6 class="table-name-prop">@item.Book.Name</h6>
+                <h6>@item.Book.Author</h6>
+                <h6>@item.Book.Description</h6>
+                <h6 style="padding-left: 28px;">@item.Count</h6>
+                <h6>@((item.Price * item.Count).ToString("c"))</h6>
+            </div>
+        }
+    </div>
 </div>
