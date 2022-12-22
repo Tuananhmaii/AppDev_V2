@@ -76,7 +76,6 @@ namespace App_Dev.Controllers
             return View(obj);
         }
 
-        //POST
         [HttpGet]
         public IActionResult Delete(int id)
         {

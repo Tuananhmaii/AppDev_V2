@@ -130,26 +130,8 @@ namespace App_Dev.Controllers
                 return RedirectToAction("Index");
         }
 
-        //GET
-        public IActionResult Delete(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            var bookFromDbFirst = _unitOfWork.Book.GetFirstOrDefault(u => u.Id == id);
-            if (bookFromDbFirst == null)
-            {
-                return NotFound();
-            }
-
-            return View(bookFromDbFirst);
-        }
-
-        //POST
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public IActionResult DeletePOST(int? id)
+        [HttpGet]
+        public IActionResult Delete(int id)
         {
             var obj = _unitOfWork.Book.GetFirstOrDefault(u => u.Id == id);
             if (obj == null)
