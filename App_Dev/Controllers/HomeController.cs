@@ -36,6 +36,10 @@ namespace App_Dev.Controllers
             IEnumerable<Book> bookList = _unitOfWork.Book.GetAll(includeProperties: "Category");
             return View(bookList);
         }
+        public IActionResult HelpPage()
+        {
+            return View();
+        }
         [HttpGet]
         public IActionResult Details(int bookId)
         {

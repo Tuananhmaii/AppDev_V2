@@ -56,9 +56,20 @@ namespace App_Dev.Controllers
         public IActionResult Edit(Request request)
         {
             _db.Requests.Update(request);
+            if(request.Status == null)
+            {
+                request.Status = "Waiting";
+            }
             _db.SaveChanges();
             TempData["success"] = "Request updated successfully";
-            return RedirectToAction("IndexAll");
+            if (User.IsInRole(SD.Store_Role))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("IndexAll");
+            }
         }
     }
 }

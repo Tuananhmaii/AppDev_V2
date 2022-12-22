@@ -11,6 +11,7 @@ using System.Security.Claims;
 
 namespace App_Dev.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly ApplicationDbContext _db;

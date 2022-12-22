@@ -15,15 +15,25 @@
     </div>
     <div class="request-infor">
         <label asp-for="Details"><i class="bi bi-card-text"></i> Details:</label>
-        <input asp-for="Details" /> 
+        <input asp-for="Details" />
         <span asp-validation-for="Details"></span>
     </div>
     <div class="request-grp">
-        <select class="request-status" asp-for="Status">
-            <option value="Waiting" selected>Waiting </option>
-            <option value="Approved">Approved</option>
-            <option value="Denied">Denied</option>
-        </select>
-        <button type="submit">Edit</button>
+        @if (User.IsInRole(SD.Admin_Role))
+        {
+            <select class="request-status" asp-for="Status">
+                <option value="Waiting" selected>Waiting </option>
+                <option value="Approved">Approved</option>
+                <option value="Denied">Denied</option>
+            </select>
+        }
+        @if (Model.Status != "Approved" && User.IsInRole(SD.Store_Role))
+        {
+            <button type="submit">Edit</button>
+        }
+        @if (Model.Status == "Approved")
+        {
+            <button asp-action="Create" asp-controller="Categories" type="submit">Create Category</button>
+        }
     </div>
 </form>

@@ -15,9 +15,7 @@
             <h6>@item.ApplicationUser.FullName</h6>
             <h6>@item.Description</h6>
             <h6>@item.Status</h6>
-            @if(User.IsInRole(SD.Admin_Role)){
-                <a style="margin-right: 20px;" class="table-edit-btn" asp-action="Edit" asp-route-requestId="@item.Id">Edit</a>
-            }
+             <a style="margin-right: 20px;" class="table-edit-btn" asp-action="Edit" asp-route-requestId="@item.Id">Edit</a>
         </div>
     }
 </div>
