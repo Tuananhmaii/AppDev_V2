@@ -27,7 +27,7 @@
                 <option value="Denied">Denied</option>
             </select>
         }
-        @if (Model.Status != "Approved" && User.IsInRole(SD.Store_Role))
+        @if (Model.Status != "Approved" && User.IsInRole(SD.Admin_Role))
         {
             <button type="submit">Edit</button>
         }

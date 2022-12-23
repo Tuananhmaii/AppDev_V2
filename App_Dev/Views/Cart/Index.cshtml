@@ -24,7 +24,7 @@
                 </div>
                 <h6 style="padding-left: 88px; margin-right: 102px;" id="table-price-prop">$@(@item.Book.Price * @item.Count)</h6>
                 <div role="group" class="table-func-btn">
-                    <a class="table-edit-btn" asp-action="Delete" asp-route-cartID="@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                    <a class="table-edit-btn" asp-action="Remove" asp-route-cartID="@item.Id"><i class="bi bi-trash"></i> Delete</a>
                 </div>
             </div>
         }

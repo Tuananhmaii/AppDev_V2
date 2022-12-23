@@ -168,7 +168,7 @@ body {
     display: flex;
     margin-top: 69px;
     margin-left: 100px;
-    padding-right: 80px;
+    padding-right: 67px;
     border-right: 2px solid black;
 }
 
@@ -210,13 +210,13 @@ body {
 }
 
 .buy-btn {
-    width: 150px;
-    padding: 8px 15px;
+    width: 282px;
+    padding: 15px 15px;
     background-color: #f02d34;
     color: #fff;
     border: 1px solid #f02d34;
     margin-top: 30px;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 500;
     transition: transform .5s ease;
     border-radius: 5px;

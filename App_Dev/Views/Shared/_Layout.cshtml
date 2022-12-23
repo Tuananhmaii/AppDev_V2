@@ -34,17 +34,17 @@
                     <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
                 <li class="sidebar-item">
-                    <i class="bi bi-card-list"></i>
+                    <i class="bi bi-cart2"></i>
                     <a asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
                 </li>
                 <li class="sidebar-item">
-                    <i class="bi bi-card-list"></i>
+                    <i class="bi bi-bag-dash"></i>
                     <a asp-area="" asp-controller="Order" asp-action="Index">Order</a>
                 </li>
-                @if (User.IsInRole(SD.Admin_Role))
+                @if (User.IsInRole(SD.Store_Role) || User.IsInRole(SD.Admin_Role))
                 {
                     <li class="sidebar-item">
-                        <i class="bi bi-card-list"></i>
+                        <i class="bi bi-bag-check-fill"></i>
                         <a asp-area="" asp-controller="Order" asp-action="IndexAll">All Order</a>
                     </li>
                 }
@@ -55,31 +55,31 @@
                         <a asp-area="" asp-controller="Book" asp-action="Index">Book</a>
                     </li>
                     <li class="sidebar-item">
-                        <i class="bi bi-card-list"></i>
+                        <i class="bi bi-tag"></i>
                         <a asp-area="" asp-controller="Categories" asp-action="Index">Category</a>
                     </li>
                 }
                 @if (User.IsInRole(SD.Store_Role))
                 {
                     <li class="sidebar-item">
-                        <i class="bi bi-card-list"></i>
-                        <a asp-area="" asp-controller="Request" asp-action="Index">Request by account</a>
+                        <i class="bi bi-envelope-paper-heart"></i>
+                        <a asp-area="" asp-controller="Request" asp-action="Index">Request</a>
                     </li>
                 }
                 @if (User.IsInRole(SD.Admin_Role))
                 {
                     <li class="sidebar-item">
-                        <i class="bi bi-card-list"></i>
+                        <i class="bi bi-envelope-paper"></i>
                         <a asp-area="" asp-controller="Request" asp-action="IndexAll">All Request</a>
                     </li>
 
                     <li class="sidebar-item">
-                        <i class="bi bi-card-list"></i>
+                        <i class="bi bi-person-vcard"></i>
                         <a asp-area="" asp-controller="Account" asp-action="Index">Account</a>
                     </li>
                     <li class="sidebar-item">
-                        <i class="bi bi-card-list"></i>
-                        <a asp-area="Identity" asp-page="/Account/Register">Register new account</a>
+                        <i class="bi bi-person-plus"></i>
+                        <a asp-area="Identity" asp-page="/Account/Register">Register account</a>
                     </li>
                 }
             </ul>
