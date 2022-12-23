@@ -12,18 +12,18 @@
     </div>
     <div class="book-index-wrapper">
         <h2 style="padding: 15px 115px">Order Summary</h2>
-        <div style="width: 930px; margin-left: 202px" class="prop-title-wrapper">
-            <h6 class="table-prop-title">Name</h6>
-            <h6 class="table-prop-title">Quantity</h6>
-            <h6 class="table-prop-title">Price</h6>
+        <div style="width: 715px; margin-left: 303px" class="prop-title-wrapper">
+            <h6 style="width: 200px; margin-left: 135px" class="table-prop-title">Name</h6>
+            <h6 style="width: 200px" class="table-prop-title">Quantity</h6>
+            <h6 style="width: 180px" class="table-prop-title">Price</h6>
         </div>
         @foreach (var item in Model.ListCart)
         {
-            <div style="width: 930px;  margin-left: 202px" class="table-item">
+            <div style="width: 715px;  margin-left: 303px" class="table-item">
                 <div class="table-image" style="background-image: url('../../@item.Book.Image.Replace("\\","/")')"></div>
-                <h6 class="table-name-prop">@item.Book.Name</h6>
-                <h6 style="padding-left: 28px;">@item.Count</h6>
-                <h6>@((item.Price * item.Count).ToString("c"))</h6>
+                <h6 style="width: 200px; margin-left: 40px" class="table-name-prop">@item.Book.Name</h6>
+                <h6 style="padding-left: 28px; width: 200px">@item.Count</h6>
+                <h6 style="width: 180px">@((item.Price * item.Count).ToString("c"))</h6>
             </div>
         }
     </div>
