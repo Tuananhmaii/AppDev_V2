@@ -6,7 +6,7 @@
         <h6 class="table-prop-title">Name</h6>
         <h6 class="table-prop-title">Phone</h6>
         <h6 class="table-prop-title">City</h6>
-        <h6 class="table-prop-title">Address</h6>
+        <h6 class="table-prop-title">Order Day</h6>
         <h6 class="table-prop-title">Price</h6>
     </div>
     @foreach (var item in Model)
@@ -16,7 +16,7 @@
             <h6>@item.Name</h6>
             <h6>@item.PhoneNumber</h6>
             <h6>@item.City</h6>
-            <h6>@item.Address</h6>
+            <h6>@item.DayCreated.ToShortDateString()</h6>
             <h6>@item.TotalPrice.ToString("c")</h6>
             <a style="margin-right: 20px;" class="table-edit-btn" asp-action="Details" asp-route-orderId="@item.Id">Details</a>
         </div>

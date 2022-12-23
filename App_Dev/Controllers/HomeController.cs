@@ -65,11 +65,13 @@ namespace App_Dev.Controllers
             if (cartFromDB == null)
             {
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
+                TempData["success"] = "Add to cart successfully";
                 _unitOfWork.Save();
             }
             else
             {
                 _unitOfWork.ShoppingCart.IncrementCount(cartFromDB, shoppingCart.Count);
+                TempData["success"] = "Add to cart successfully";
                 _unitOfWork.Save();
             }
             return RedirectToAction("Index");

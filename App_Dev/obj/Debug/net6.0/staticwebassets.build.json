@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "08jcpP79qODUKRAyPT3D9x0WX1EM/PR9mjQwVr+Ff48=",
+  "Hash": "nmSVBaM8J/w3unc1c98GslS9Mo5q8Bdh6nAMoykDYZo=",
   "Source": "App_Dev",
   "BasePath": "_content/App_Dev",
   "Mode": "Default",
@@ -1443,6 +1443,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\books\\adefb795-c9db-482b-aec3-d02a2f8666da.jpg"
+    },
+    {
+      "Identity": "D:\\AppDev\\App_Dev\\wwwroot\\images\\books\\c2109ca9-8ab9-4c38-a297-3919e15d59a2.png",
+      "SourceId": "App_Dev",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\AppDev\\App_Dev\\wwwroot\\",
+      "BasePath": "_content/App_Dev",
+      "RelativePath": "images/books/c2109ca9-8ab9-4c38-a297-3919e15d59a2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\books\\c2109ca9-8ab9-4c38-a297-3919e15d59a2.png"
     },
     {
       "Identity": "D:\\AppDev\\App_Dev\\wwwroot\\images\\books\\ddcdbf29-44b6-4378-ae25-5d223744bc8d.png",
