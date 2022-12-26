@@ -1387,3 +1387,8 @@ D:\AppDev_V2\App_Dev\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
 D:\Học hành\1670\AppDev_V2\App_Dev\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
 D:\AppDev\App_Dev\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
 D:\AppDev\App_Dev\bin\Debug\net6.0\global.json
+D:\AppDev\App_Dev\obj\Debug\net6.0\staticwebassets\msbuild.App_Dev.Microsoft.AspNetCore.StaticWebAssets.props
+D:\AppDev\App_Dev\obj\Debug\net6.0\staticwebassets\msbuild.build.App_Dev.props
+D:\AppDev\App_Dev\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.App_Dev.props
+D:\AppDev\App_Dev\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.App_Dev.props
+D:\AppDev\App_Dev\obj\Debug\net6.0\staticwebassets.pack.json

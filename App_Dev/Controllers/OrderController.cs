@@ -34,7 +34,7 @@ namespace App_Dev.Controllers
             return View(orderList);
         }
 
-        [Authorize(Roles = SD.Admin_Role + "," + SD.Store_Role)]
+        [Authorize]
         [HttpGet]
         public IActionResult Details(int orderId)
         {

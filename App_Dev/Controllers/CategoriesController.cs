@@ -24,25 +24,23 @@ namespace App_Dev.Controllers
             return View(objCategoryList);
         }
 
-        //GET
-        public IActionResult Create()
-        {
-            return View();
-        }
+        ////GET
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category obj)
+        public IActionResult Create(Request request)
         {
-            if (ModelState.IsValid)
-            {
+                Category obj = new Category();
+                obj.Name = request.Details;
                _unitOfWork.Category.Add(obj);
                _unitOfWork.Save();
                TempData["success"] = "Category created successfully"; 
                return RedirectToAction("Index");   
-            }
-            return View(obj);
         }
 
         //GET
