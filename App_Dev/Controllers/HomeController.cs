@@ -40,6 +40,7 @@ namespace App_Dev.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public IActionResult Details(int bookId)
         {
@@ -52,7 +53,7 @@ namespace App_Dev.Controllers
             };
             return View(cartObj);
         }
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Details(ShoppingCart shoppingCart)
